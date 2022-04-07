@@ -2,11 +2,12 @@
   <v-form ref="form">
     <v-container>
       <v-row class="mt-10">
+       
         <v-col cols="6">
           <v-text-field
-          v-model="form.iron_ton"
-            label="سعر(طن) الحديد"
-            placeholder="سعر (طن) الحديد"
+          v-model="form.reinforces_concrete"
+            label="سعر الخرسانة المسلحة (م^3)"
+            placeholder="سعر الخرسانة المسلحة (م^3)"
             outlined
             :rules="requiredRules"
           >
@@ -14,9 +15,9 @@
         </v-col>
         <v-col cols="6">
           <v-text-field
-          v-model="form.concrete"
-            label="سعر الخرسانة (م^3)"
-            placeholder="سعر الخرسانة (م^3)"
+          v-model="form.normal_concrete"
+            label="سعر الخرسانة العادية (م^3)"
+            placeholder="سعر الخرسانة العادية (م^3)"
             outlined
             :rules="requiredRules"
           >
@@ -33,10 +34,10 @@
           </v-text-field>
         </v-col>
         <v-col cols="6">
-                <v-text-field
-          v-model="form.cement"
-            label="سعر الأسمنت"
-            placeholder="سعر الأسمنت"
+          <v-text-field
+          v-model="form.iron_ton"
+            label="سعر(طن) الحديد"
+            placeholder="سعر (طن) الحديد"
             outlined
             :rules="requiredRules"
           >
@@ -59,9 +60,10 @@ export default {
     return {
       form: {
           iron_ton:'',
-          concrete:'',
+          reinforces_concrete:'',
+          normal_concrete:'',
           blocks:'',
-          cement:'',
+          // cement:'',
 
       },
       requiredRules: [(v) => !!v || 'الحالة مطلوب'],

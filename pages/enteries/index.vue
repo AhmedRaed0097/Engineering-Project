@@ -50,6 +50,7 @@
         <v-col cols="6">
           <v-select
           v-model="form.soil_type"
+          :disabled="form.floor_number === null ? true : false"
           :items="soil_types"
           item-text="title"
           item-value="value"
@@ -91,7 +92,7 @@ export default {
     return {
       form: {
           projection_number:'',
-          floor_number:'',
+          floor_number:null,
           roof_type:'',
           soil_type:'',
           height:'',
@@ -99,7 +100,7 @@ export default {
 
       },
       projections_number:[1,2,3,4],
-      floors_number:[1,2,3,4,5],
+      floors_number:[3,4,5],
       soil_types:[
           {
               title:'قوية',
@@ -123,6 +124,50 @@ export default {
       requiredRules: [(v) => !!v || 'الحالة مطلوب'],
     }
   },
+  watch:{
+    'form.floor_number'(val){
+      if(val === 4){
+        this.soil_types = [
+            
+           {
+              title:'متوسطة',
+              value:'intermediate'
+          },
+        ]
+      }else if(val === 5){
+        this.soil_types = [
+           {
+              title:'قوية',
+              value:'strong'
+          },
+           {
+              title:'متوسطة',
+              value:'intermediate'
+          },
+        ]
+      }else{
+        this.soil_types = [
+             {
+              title:'قوية',
+              value:'strong'
+          },
+          {
+              title:'متوسطة',
+              value:'intermediate'
+          },
+          {
+              title:'ضعيفة',
+              value:'weak'
+          }
+        ]
+      }
+    }
+  },
+    computed:{
+    enteries(){
+      return this.$store.state.enteries
+    }
+    },
   methods: {
     sendEnteries() {
         if(this.$refs.form.validate()){
@@ -131,6 +176,12 @@ export default {
         }
     },
   },
+    created(){
+    if(this.enteries!== null){
+      this.form={...this.enteries}
+    }
+
+  }
 }
 </script>
 

@@ -1,24 +1,117 @@
 export const state = () => ({
+    reinforces_concrete_qty_factor: null,
+    normal_concrete_qty_factor: null,
+    iron_qty_factor: null,
+    total_area: null,
     enteries: null,
-    prices: null
+    prices: null,
+    // الإخراجات(الكميات)
+    qtys: {
+        reinforces_concrete_qty: null,
+        normal_concrete_qty: null,
+        iron_qty: null,
+    },
+    costs: {
+        reinforces_concrete_cost: null,
+        normal_concrete_cost: null,
+        iron_cost: null,
+    }
 })
 
 
 export const mutations = {
     STOREENTERIES(state, payload) {
         state.enteries = payload
+        state.total_area = ((parseInt(payload.width) + payload.projection_number) * parseInt(payload.height))
+
+        // ================= 3 FLOOR ============================
+
+        if (payload.floor_number == 3 && payload.soil_type == 'weak') {
+
+            state.reinforces_concrete_qty_factor = 0.195
+            state.normal_concrete_qty_factor = 0.04
+            state.iron_qty_factor = 0.082
+
+        } else if (payload.floor_number == 3 && payload.soil_type == 'intermediate') {
+
+            state.reinforces_concrete_qty_factor = 0.134
+            state.normal_concrete_qty_factor = 0.025
+            state.iron_qty_factor = 0.08
+
+        } else if (payload.floor_number == 3 && payload.soil_type == 'strong') {
+
+            state.reinforces_concrete_qty_factor = 0.099
+            state.normal_concrete_qty_factor = 0.028
+            state.iron_qty_factor = 0.08
+
+        }
+        // =============== //3FLOOR  ===========================
+
+        // ================= 4 FLOOR ============================
+
+        else if (payload.floor_number == 4 && payload.soil_type == 'intermediate') {
+
+            state.reinforces_concrete_qty_factor = 0.225
+            state.normal_concrete_qty_factor = 0.046
+            state.iron_qty_factor = 0.07
+        }
+
+        // ================= //4 FLOOR =========================
+
+
+        // ================= 5 FLOOR =========================
+
+        else if (payload.floor_number == 5 && payload.soil_type == 'intermediate') {
+
+            state.reinforces_concrete_qty_factor = 0.27
+            state.normal_concrete_qty_factor = 0.052
+            state.iron_qty_factor = 0.07
+        }
+
+
+        else if (payload.floor_number == 5 && payload.soil_type == 'strong') {
+
+            state.reinforces_concrete_qty_factor = 0.166
+            state.normal_concrete_qty_factor = 0.037
+            state.iron_qty_factor = 0.07
+        }
+
+
+        // ================= //5 FLOOR =========================
+
+
+
+        // ===================== COMPUTER qtys ===================================
+
+        state.qtys.reinforces_concrete_qty = state.reinforces_concrete_qty_factor * state.total_area
+        state.qtys.normal_concrete_qty = state.normal_concrete_qty_factor * state.total_area
+        state.qtys.iron_qty = state.iron_qty_factor * state.qtys.reinforces_concrete_qty
+
     },
     STOREPRICES(state, payload) {
         state.prices = payload
+
+        state.costs.reinforces_concrete_cost = state.qtys.reinforces_concrete_qty * parseInt(payload.reinforces_concrete)
+
+        state.costs.normal_concrete_cost = state.qtys.normal_concrete_qty * parseInt(payload.normal_concrete)
+
+        state.costs.iron_cost = state.qtys.iron_qty * parseInt(payload.iron_ton)
+
+
     }
 
 }
 export const actions = {
     storeEnteries({ commit }, payload) {
         commit('STOREENTERIES', payload)
+
+        if (payload) {
+
+        }
     },
     storePrices({ commit }, payload) {
         commit('STOREPRICES', payload)
+
     }
 
 }
