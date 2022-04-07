@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "attendance-system",
   "version": "1.0.0",
@@ -35,3 +36,42 @@
     "vite-plugin-vue2": "^1.9.3"
   }
 }
+=======
+{
+  "name": "attendance-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:prettier",
+    "lintfix": "prettier --write --list-different ."
+  },
+  "dependencies": {
+    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/pwa": "^3.3.5",
+    "core-js": "^3.19.3",
+    "nuxt": "^2.15.8",
+    "qrcode.vue": "^1.7.0",
+    "vee-validate": "^4.5.10",
+    "vue": "^2.6.14",
+    "vue-barcode-reader": "0.0.3",
+    "vue-qrcode-reader": "^2.3.18",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify": "^2.6.1",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.12.3",
+    "eslint-config-prettier": "^8.3.0",
+    "nuxt-vite": "^0.2.4",
+    "prettier": "^2.5.1",
+    "vite-plugin-vue2": "^1.9.3"
+  }
+}
+>>>>>>> b69551be9267fd7411a007cd2ec54ce98acca269

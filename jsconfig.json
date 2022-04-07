@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -10,3 +11,17 @@
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
+=======
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+      "~~/*": ["./*"],
+      "@@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules", ".nuxt", "dist"]
+}
+>>>>>>> b69551be9267fd7411a007cd2ec54ce98acca269
