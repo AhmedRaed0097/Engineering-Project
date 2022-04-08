@@ -4,20 +4,20 @@
   <v-row class="mt-10 mr-2">
         <v-col cols="12">
       <!-- <div class="result-container">
-        <span class="resulr-title">إجمالي تكلفة الخرسانة العادية </span>
+        <span class="resulr-title">الخرسانة العادية</span>
         <span class="result-value">{{costs.normal_concrete_cost}}</span>
       </div>
     </v-col>
     <v-col cols="12">
       <div class="result-container">
-        <span class="resulr-title">إجمالي تكلفة الخرسانة المسلحة </span>
+        <span class="resulr-title">الخرسانة المسلحة</span>
         <span class="result-value">{{costs.reinforces_concrete_cost}}</span>
 
       </div>
     </v-col>
     <v-col cols="12">
       <div class="result-container">
-        <span class="resulr-title">إجمالي تكلفة الحديد</span>
+        <span class="resulr-title">الحديد</span>
         <span class="result-value">{{costs.iron_cost}}</span>
 
       </div> -->
