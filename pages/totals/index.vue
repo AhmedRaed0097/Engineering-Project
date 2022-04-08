@@ -31,15 +31,15 @@
             </thead>
             <tbody>
               <tr>
-                <td>الخرسانة العادية</td>
+                <td>خرسانة النظافة للقواعد</td>
                 <td>{{costs.normal_concrete_cost}}</td>
               </tr>
               <tr>
-                <td>الخرسانة المسلحة</td>
+                <td>خرسانة المسلحة للقواعد</td>
                 <td>{{costs.reinforces_concrete_cost}}</td>
               </tr>
               <tr>
-                <td>الحديد</td>
+                <td>حديد القواعد</td>
                 <td>{{costs.iron_cost}}</td>
               </tr>
             </tbody>

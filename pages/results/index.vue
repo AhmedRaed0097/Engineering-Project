@@ -8,20 +8,26 @@
               <tr>
                 <th>العنصر</th>
                 <th>الكمية</th>
+                <th>الوحدة</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>الخرسانة العادية</td>
+                <td>خرسانة النظافة للقواعد</td>
                 <td>{{ qtys.normal_concrete_qty }}</td>
+                <td>م^3</td>
               </tr>
               <tr>
-                <td>الخرسانة المسلحة</td>
+                <td>خرسانة المسلحة للقواعد</td>
                 <td>{{ qtys.reinforces_concrete_qty }}</td>
+                <td>م^3</td>
+              
               </tr>
               <tr>
-                <td>الحديد</td>
+                <td>حديد القواعد</td>
                 <td>{{ qtys.iron_qty }}</td>
+                <td>طن</td>
+              
               </tr>
             </tbody>
           </template>
