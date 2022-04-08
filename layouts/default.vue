@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar height="70" app class="app-bar">
+    <v-app-bar height="70" app class="app-bar" v-if="$vuetify.breakpoint.mdAndDown">
       <span>
         {{ app_bar_text }}
       </span>
@@ -69,11 +69,14 @@ export default {
 body {
   direction: rtl;
 }
+#app{
+  background-image: url('../assets/images/svg-background.svg');
+  background-size: cover;
+
+}
 .v-main {
   max-width: 100%;
   margin: 0 auto;
-  background-image: url('../assets/images/svg-background.svg');
-  background-size: cover;
 }
 .v-select__selection {
   height: 22px;
