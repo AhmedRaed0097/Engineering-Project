@@ -8,8 +8,8 @@ export default {
   target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - attendance-pwa-app',
-    title: 'attendance-pwa-app',
+    titleTemplate: '%s - Engineering-pwa-app',
+    title: 'engineering-app',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -73,8 +73,13 @@ export default {
       name: 'Engineering-App',
       short_name: 'Engineering-App',
       lang: 'ar',
-      display: 'standalone'
+      display: 'standalone',
+
     },
+    icon: {
+      fileName: 'custom.png',  
+    },
+  
     workbox: {
       cachingExtensions: '@/plugins/workbox-sync.js',
       enabled: true //should be off actually per workbox docs due to complications when used in prod
