@@ -31,7 +31,7 @@
       <v-col cols="12">
         <center>
           <v-btn class="next-btn" @click="calculateTotal" outlined>
-            حساب الكمية والتكلفة الإجمالية
+            حساب التكلفة الإجمالية
           </v-btn>
         </center>
       </v-col>
