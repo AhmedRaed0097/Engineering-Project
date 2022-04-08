@@ -1,6 +1,6 @@
 <template>
   <div class="home-wrapper">
-    <v-btn to="/enteries" class="start-btn" outlined rounded>إبدأ</v-btn>
+    <v-btn to="/enteries" class="start-btn" outlined>إبدأ</v-btn>
   </div>
 </template>
 
@@ -16,13 +16,13 @@ export default {
 .home-wrapper {
   width: 100vw;
   height: 100vh;
-  background-image: url('../assets/images/header-image.jpg');
+  // background-image: url('../assets/images/header-image.jpg');
   background-size: cover;
   background-position: center;
   .start-btn {
     
     width: 100px;
-    height: 40px;
+    height: 50px;
     // position: absolute;
     // bottom: 160px;
     // right: 126px;

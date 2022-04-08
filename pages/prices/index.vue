@@ -1,52 +1,60 @@
 <template>
-  <v-form ref="form">
+  <v-form ref="form" :class="{ 'small-form': $vuetify.breakpoint.smAndDown }">
     <v-container>
-      <v-row class="mt-10">
-       
+      <v-row>
+        <v-col cols="12" class="mb-8">
+          <h2 class="text-center">الأسعار</h2>
+        </v-col>
         <v-col cols="6">
           <v-text-field
-          v-model="form.reinforces_concrete"
+            outlined
+            v-model="form.reinforces_concrete"
             label="سعر الخرسانة المسلحة (م^3)"
             placeholder="سعر الخرسانة المسلحة (م^3)"
-            outlined
             :rules="requiredRules"
+            color="black"
           >
           </v-text-field>
         </v-col>
         <v-col cols="6">
           <v-text-field
-          v-model="form.normal_concrete"
+            outlined
+            v-model="form.normal_concrete"
             label="سعر الخرسانة العادية (م^3)"
             placeholder="سعر الخرسانة العادية (م^3)"
-            outlined
             :rules="requiredRules"
-          >
-          </v-text-field>
-        </v-col>
-        <v-col cols="6">
-              <v-text-field
-          v-model="form.blocks"
-            label="سعر البلك (هدد)"
-            placeholder="سعر البلك (هدد)"
-            outlined
-            :rules="requiredRules"
+            color="black"
           >
           </v-text-field>
         </v-col>
         <v-col cols="6">
           <v-text-field
-          v-model="form.iron_ton"
+            outlined
+            v-model="form.iron_ton"
             label="سعر(طن) الحديد"
             placeholder="سعر (طن) الحديد"
-            outlined
             :rules="requiredRules"
+            color="black"
+          >
+          </v-text-field>
+        </v-col>
+        <v-col cols="6">
+          <v-text-field
+            outlined
+            v-model="form.blocks"
+            label="سعر البلك (هدد)"
+            placeholder="سعر البلك (هدد)"
+            :rules="requiredRules"
+            color="black"
           >
           </v-text-field>
         </v-col>
 
         <v-col cols="12">
           <center>
-            <v-btn @click="sendPrices" outlined rounded>التالي</v-btn>
+            <v-btn class="next-btn" @click="sendPrices" outlined shaped
+              >التالي</v-btn
+            >
           </center>
         </v-col>
       </v-row>
@@ -59,43 +67,41 @@ export default {
   data() {
     return {
       form: {
-          iron_ton:'',
-          reinforces_concrete:'',
-          normal_concrete:'',
-          blocks:'',
-          // cement:'',
-
+        iron_ton: '',
+        reinforces_concrete: '',
+        normal_concrete: '',
+        blocks: '',
+        // cement:'',
       },
-      requiredRules: [(v) => !!v || 'الحالة مطلوب'],
+      requiredRules: [
+        (v) => !!v || 'الحقل مطلوب',
+        (v) => /^\d+$/.test(v) || 'يجب ان يكون المدخل ارقام',
+      ],
     }
   },
   methods: {
     sendPrices() {
-        if(this.$refs.form.validate()){
-         this.$store.dispatch('storePrices',this.form)
-         this.$router.push('/results')
-        }
+      if (this.$refs.form.validate()) {
+        this.$store.dispatch('storePrices', this.form)
+        this.$router.push('/results')
+      }
     },
   },
-  computed:{
-    enteries(){
-      return this.$store.state.enteries
-    },
-    prices(){
+  computed: {
+    prices() {
       return this.$store.state.prices
-    }
+    },
   },
-  created(){
-    if(this.enteries === null){
+  created() {
+    if (this.enteries === null) {
       this.$router.push('/enteries')
     }
-    if(this.prices!== null){
-      this.form={...this.prices}
+    if (this.prices !== null) {
+      this.form = { ...this.prices }
     }
-
-  }
+  },
 }
 </script>
 
-<style>
+<style lang='scss'>
 </style>

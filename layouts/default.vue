@@ -5,10 +5,11 @@
         {{ app_bar_text }}
       </span>
       <img
+        width="38"
         v-if="$route.name !== 'index'"
         @click="$router.back()"
         class="back-icon"
-        src="../assets/images/home/back-icon.svg"
+        src="../assets/images/back.svg"
         alt=""
       />
     </v-app-bar>
@@ -36,9 +37,9 @@ export default {
           this.app_bar_text = 'مواصفات المبنى'
         } else if (this.$route.name === 'prices') {
           this.app_bar_text = 'الأسعار'
-        }else if (this.$route.name === 'results') {
-      this.app_bar_text = 'التكاليف'
-    }
+        } else if (this.$route.name === 'results') {
+          this.app_bar_text = 'التكاليف'
+        }
       },
     },
   },
@@ -52,7 +53,7 @@ export default {
       this.app_bar_text = 'مواصفات المبنى'
     } else if (this.$route.name === 'prices') {
       this.app_bar_text = 'الأسعار'
-    }else if (this.$route.name === 'results') {
+    } else if (this.$route.name === 'results') {
       this.app_bar_text = 'التكاليف'
     }
   },
@@ -62,16 +63,26 @@ export default {
 }
 </script>
 <style lang="scss">
+* {
+  font-family: 'AJannatLT';
+}
 body {
   direction: rtl;
 }
 .v-main {
   max-width: 100%;
   margin: 0 auto;
+  background-image: url('../assets/images/svg-background.svg');
+  background-size: cover;
+}
+.v-select__selection {
+  height: 22px;
+  display: flex;
+  align-items: center;
 }
 .app-bar {
   max-height: 80px;
-  background: rgb(111 139 215) !important;
+  background: #7b7e87 !important;
   .v-toolbar__content {
     display: flex;
     justify-content: space-between;

@@ -18,7 +18,6 @@ export const state = () => ({
     }
 })
 
-
 export const mutations = {
     STOREENTERIES(state, payload) {
         state.enteries = payload
@@ -38,6 +37,7 @@ export const mutations = {
             state.normal_concrete_qty_factor = 0.025
             state.iron_qty_factor = 0.08
 
+       
         } else if (payload.floor_number == 3 && payload.soil_type == 'strong') {
 
             state.reinforces_concrete_qty_factor = 0.099
@@ -58,7 +58,6 @@ export const mutations = {
 
         // ================= //4 FLOOR =========================
 
-
         // ================= 5 FLOOR =========================
 
         else if (payload.floor_number == 5 && payload.soil_type == 'intermediate') {
@@ -68,7 +67,6 @@ export const mutations = {
             state.iron_qty_factor = 0.07
         }
 
-
         else if (payload.floor_number == 5 && payload.soil_type == 'strong') {
 
             state.reinforces_concrete_qty_factor = 0.166
@@ -76,26 +74,23 @@ export const mutations = {
             state.iron_qty_factor = 0.07
         }
 
-
         // ================= //5 FLOOR =========================
-
-
 
         // ===================== COMPUTER qtys ===================================
 
-        state.qtys.reinforces_concrete_qty = state.reinforces_concrete_qty_factor * state.total_area
-        state.qtys.normal_concrete_qty = state.normal_concrete_qty_factor * state.total_area
-        state.qtys.iron_qty = state.iron_qty_factor * state.qtys.reinforces_concrete_qty
+        state.qtys.reinforces_concrete_qty = (state.reinforces_concrete_qty_factor * state.total_area).toFixed(2)
+        state.qtys.normal_concrete_qty = (state.normal_concrete_qty_factor * state.total_area).toFixed(2)
+        state.qtys.iron_qty = (state.iron_qty_factor * state.qtys.reinforces_concrete_qty).toFixed(2)
 
     },
     STOREPRICES(state, payload) {
         state.prices = payload
 
-        state.costs.reinforces_concrete_cost = state.qtys.reinforces_concrete_qty * parseInt(payload.reinforces_concrete)
+        state.costs.reinforces_concrete_cost = state.qtys.reinforces_concrete_qty * parseInt(payload.reinforces_concrete).toFixed(2)
 
-        state.costs.normal_concrete_cost = state.qtys.normal_concrete_qty * parseInt(payload.normal_concrete)
+        state.costs.normal_concrete_cost = state.qtys.normal_concrete_qty * parseInt(payload.normal_concrete).toFixed(2)
 
-        state.costs.iron_cost = state.qtys.iron_qty * parseInt(payload.iron_ton)
+        state.costs.iron_cost = state.qtys.iron_qty * parseInt(payload.iron_ton).toFixed(2)
 
 
     }
@@ -104,10 +99,6 @@ export const mutations = {
 export const actions = {
     storeEnteries({ commit }, payload) {
         commit('STOREENTERIES', payload)
-
-        if (payload) {
-
-        }
     },
     storePrices({ commit }, payload) {
         commit('STOREPRICES', payload)

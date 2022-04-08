@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "AJannatLT";
+    src: url(~/assets/fonts/alfont_com_AAJannatLT-.ttf);
+  }
+  .small-form {
+    height: 100%;
+    .container {
+      height: 100%;
+      .row {
+        height: 73%;
+      }
+    }
+  }
+  .next-btn{
+    height: 45px !important;
+    min-width: 115px !important;
+  }
