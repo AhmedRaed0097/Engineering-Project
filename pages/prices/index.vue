@@ -42,8 +42,8 @@
           <v-text-field
             outlined
             v-model="form.blocks"
-            label="سعر البلك (هدد)"
-            placeholder="سعر البلك (هدد)"
+            label="سعر البلك"
+            placeholder="سعر البلك"
             :rules="requiredRules"
             color="black"
           >
