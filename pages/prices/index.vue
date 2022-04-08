@@ -53,7 +53,7 @@
         <v-col cols="12">
           <center>
             <v-btn class="next-btn" @click="sendPrices" outlined shaped
-              >التالي</v-btn
+              >حساب الكميات</v-btn
             >
           </center>
         </v-col>
@@ -75,7 +75,7 @@ export default {
       },
       requiredRules: [
         (v) => !!v || 'الحقل مطلوب',
-        (v) => /^\d+$/.test(v) || 'يجب ان يكون المدخل ارقام',
+        (v) => /^(\d+(?:\.\d+)?)$/.test(v) || 'يجب ان يكون المدخل ارقام',
       ],
     }
   },

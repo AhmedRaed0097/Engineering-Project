@@ -31,15 +31,15 @@
             </thead>
             <tbody>
               <tr>
-                <td>إجمالي تكلفة الخرسانة العادية</td>
+                <td>الخرسانة العادية</td>
                 <td>{{costs.normal_concrete_cost}}</td>
               </tr>
               <tr>
-                <td>إجمالي تكلفة الخرسانة المسلحة</td>
+                <td>الخرسانة المسلحة</td>
                 <td>{{costs.reinforces_concrete_cost}}</td>
               </tr>
               <tr>
-                <td>إجمالي تكلفة الحديد</td>
+                <td>الحديد</td>
                 <td>{{costs.iron_cost}}</td>
               </tr>
             </tbody>

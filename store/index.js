@@ -21,7 +21,7 @@ export const state = () => ({
 export const mutations = {
     STOREENTERIES(state, payload) {
         state.enteries = payload
-        state.total_area = ((parseInt(payload.width) + payload.projection_number) * parseInt(payload.height))
+        state.total_area = ((parseFloat(payload.width) + payload.projection_number) * parseFloat(payload.height))
 
         // ================= 3 FLOOR ============================
 
@@ -86,11 +86,11 @@ export const mutations = {
     STOREPRICES(state, payload) {
         state.prices = payload
 
-        state.costs.reinforces_concrete_cost = state.qtys.reinforces_concrete_qty * parseInt(payload.reinforces_concrete).toFixed(2)
+        state.costs.reinforces_concrete_cost = (state.qtys.reinforces_concrete_qty * parseFloat(payload.reinforces_concrete)).toFixed(2)
 
-        state.costs.normal_concrete_cost = state.qtys.normal_concrete_qty * parseInt(payload.normal_concrete).toFixed(2)
+        state.costs.normal_concrete_cost = (state.qtys.normal_concrete_qty * parseFloat(payload.normal_concrete)).toFixed(2)
 
-        state.costs.iron_cost = state.qtys.iron_qty * parseInt(payload.iron_ton).toFixed(2)
+        state.costs.iron_cost = (state.qtys.iron_qty * parseFloat(payload.iron_ton)).toFixed(2)
 
 
     }

@@ -12,15 +12,15 @@
             </thead>
             <tbody>
               <tr>
-                <td>كمية الخرسانة العادية</td>
+                <td>الخرسانة العادية</td>
                 <td>{{ qtys.normal_concrete_qty }}</td>
               </tr>
               <tr>
-                <td>كمية الخرسانة المسلحة</td>
+                <td>الخرسانة المسلحة</td>
                 <td>{{ qtys.reinforces_concrete_qty }}</td>
               </tr>
               <tr>
-                <td>كمية الحديد</td>
+                <td>الحديد</td>
                 <td>{{ qtys.iron_qty }}</td>
               </tr>
             </tbody>
