@@ -1,44 +1,35 @@
 <template>
   <v-container>
-    <v-row class="mt-10 mr-2">
+    <v-row :class="!selectedOption ? 'options-row' : 'mt-6'">
       <v-col cols="12">
-        <v-simple-table>
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th>العنصر</th>
-                <th>الكمية</th>
-                <th>الوحدة</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>خرسانة النظافة للقواعد</td>
-                <td>{{ qtys.normal_concrete_qty }}</td>
-                <td>م^3</td>
-              </tr>
-              <tr>
-                <td>خرسانة المسلحة للقواعد</td>
-                <td>{{ qtys.reinforces_concrete_qty }}</td>
-                <td>م^3</td>
-              
-              </tr>
-              <tr>
-                <td>حديد القواعد</td>
-                <td>{{ qtys.iron_qty }}</td>
-                <td>طن</td>
-              
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
+        <v-select
+          v-model="selectedOption"
+          :items="options"
+          item-text="title"
+          item-value="value"
+          label="إختر الإجراء"
+          placeholder="إختر الإجراء"
+          outlined
+          :rules="requiredRules"
+          :no-data-text="'لاتوجد بيانات'"
+          color="black"
+        >
+        </v-select>
       </v-col>
-
+    </v-row>
+    <bases-table v-if="selectedOption === 'bases'"></bases-table>
+    <total-table v-if="selectedOption === 'all'"></total-table>
+    <v-row v-if="selectedOption !== null">
       <v-col cols="12">
         <center>
-          <v-btn class="next-btn" @click="calculateTotal" outlined>
-            حساب التكلفة الإجمالية
+          <v-btn class="next-btn" @click="backToEnteries" outlined
+            >الرجوع للصحفة المدخلات
           </v-btn>
+        </center>
+      </v-col>
+      <v-col cols="12">
+        <center>
+          <v-btn class="next-btn" @click="computeNew" outlined>حساب جديد</v-btn>
         </center>
       </v-col>
     </v-row>
@@ -47,18 +38,30 @@
 
 <script>
 export default {
-  computed: {
-    qtys() {
-      return this.$store.state.qtys
-    },
-    enteries() {
-      return this.$store.state.enteries
-    },
+  data() {
+    return {
+      selectedOption: null,
+      options: [
+        {
+          title: 'حساب الكميات والتكلفة للقواعد',
+          value: 'bases',
+        },
+        {
+          title: 'حساب إجمالي الكميات والتكلفة',
+          value: 'all',
+        },
+      ],
+      requiredRules: [(v) => !!v || 'الحقل مطلوب'],
+    }
   },
 
   methods: {
-    calculateTotal() {
-      this.$router.push('/totals')
+    computeNew() {
+      this.$store.commit('CLEARALL')
+      this.$router.push('/enteries')
+    },
+    backToEnteries() {
+      this.$router.push('/enteries')
     },
   },
   created() {
@@ -69,5 +72,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.container {
+  height: 100%;
+  .options-row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
 </style>

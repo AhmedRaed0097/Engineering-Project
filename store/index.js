@@ -93,7 +93,27 @@ export const mutations = {
         state.costs.iron_cost = (state.qtys.iron_qty * parseFloat(payload.iron_ton)).toFixed(2)
 
 
+    },
+    CLEARALL(state){
+        state.reinforces_concrete_qty_factor = null
+        state.normal_concrete_qty_factor = null
+        state.iron_qty_factor = null
+        state.total_area = null
+       
+        for (const key in state.enteries) {
+            state.enteries[key] = null
+        }
+        for (const key in state.prices) {
+            state.prices[key] = null
+        }
+        for (const key in state.qtys) {
+            state.qtys[key] = null
+        }
+        for (const key in state.costs) {
+            state.costs[key] = null
+        }
     }
+
 
 }
 export const actions = {
