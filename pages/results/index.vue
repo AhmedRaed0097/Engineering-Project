@@ -23,7 +23,7 @@
       <v-col cols="12">
         <center>
           <v-btn class="next-btn" @click="backToEnteries" outlined
-            >الرجوع للصحفة المدخلات
+            >الرجوع لصحفة المدخلات
           </v-btn>
         </center>
       </v-col>
