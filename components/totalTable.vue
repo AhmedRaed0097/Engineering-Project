@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <h3 class="text-center mb-5">مساحة الدور المتكرر {{ totalArea }} م</h3>
+      <h3 class="text-center mb-5">مساحة الدور المتكرر {{ totalArea }} م^2</h3>
       <v-simple-table>
         <template v-slot:default>
           <thead>
