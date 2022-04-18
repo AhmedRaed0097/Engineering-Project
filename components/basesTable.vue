@@ -40,6 +40,7 @@
       </v-simple-table>
     </v-col>
   </v-row>
+
 </template>
 
 <script>

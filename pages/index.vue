@@ -1,5 +1,6 @@
 <template>
   <div class="home-wrapper">
+
     <v-btn to="/enteries" class="start-btn" outlined>إبدأ</v-btn>
   </div>
 </template>
@@ -9,7 +10,9 @@ export default {
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+
+  },
 }
 </script>
 <style lang="scss" >

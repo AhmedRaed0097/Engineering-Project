@@ -20,26 +20,29 @@
     <bases-table v-if="selectedOption === 'bases'"></bases-table>
     <total-table v-if="selectedOption === 'all'"></total-table>
     <v-row v-if="selectedOption !== null">
-      <v-col cols="12">
-        <center>
+      <v-col cols="5">
           <v-btn class="next-btn" @click="backToEnteries" outlined
             >الرجوع لصحفة المدخلات
           </v-btn>
-        </center>
       </v-col>
-      <v-col cols="12">
-        <center>
+      <v-col cols="4">
           <v-btn class="next-btn" @click="computeNew" outlined>حساب جديد</v-btn>
-        </center>
+      </v-col>
+      <v-col cols="3">
+          <v-btn class="next-btn" @click="onGeneratePDF" outlined>تحميل PDF</v-btn>
       </v-col>
     </v-row>
+    <basesPDF :generatePdf="generatePDF"></basesPDF>
   </v-container>
 </template>
 
 <script>
+import basesPDF from '~/components/basesPDF.vue'
 export default {
+  components: { basesPDF },
   data() {
     return {
+      generatePDF:false,
       selectedOption: null,
       options: [
         {
@@ -56,6 +59,9 @@ export default {
   },
 
   methods: {
+    onGeneratePDF(){
+      this.generatePDF = true
+    },
     computeNew() {
       this.$store.commit('CLEARALL')
       this.$router.push('/enteries')
@@ -63,9 +69,18 @@ export default {
     backToEnteries() {
       this.$router.push('/enteries')
     },
+
+  },
+    computed: {
+    prices() {
+      return this.$store.state.prices
+    },
+    enteries() {
+      return this.$store.state.enteries
+    },
   },
   created() {
-    if (this.enteries === null) {
+    if (this.enteries === null || this.prices === null) {
       this.$router.push('/enteries')
     }
   },

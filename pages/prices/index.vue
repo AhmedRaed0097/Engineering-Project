@@ -52,7 +52,7 @@
 
         <v-col cols="12">
           <center>
-            <v-btn class="next-btn" @click="sendPrices" outlined shaped
+            <v-btn class="option-btn" @click="sendPrices" outlined shaped
               >حساب الكميات</v-btn
             >
           </center>
@@ -90,6 +90,9 @@ export default {
   computed: {
     prices() {
       return this.$store.state.prices
+    },
+    enteries() {
+      return this.$store.state.enteries
     },
   },
   created() {

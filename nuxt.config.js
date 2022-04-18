@@ -26,6 +26,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '@/plugins/vue-html2pdf', mode: 'client' }
+
     // { src: '~/plugins/qrCode', mode: 'client', ssr: false },
   ],
 
@@ -77,9 +79,9 @@ export default {
 
     },
     icon: {
-      fileName: 'custom.png',  
+      fileName: 'custom.png',
     },
-  
+
     workbox: {
       cachingExtensions: '@/plugins/workbox-sync.js',
       enabled: true //should be off actually per workbox docs due to complications when used in prod

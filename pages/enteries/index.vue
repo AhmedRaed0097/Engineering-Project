@@ -90,9 +90,10 @@
           >
           </v-select>
         </v-col>
+
         <v-col cols="12">
           <center>
-            <v-btn class="next-btn" @click="sendEnteries" outlined  shaped>التالي</v-btn>
+            <v-btn class="option-btn" @click="sendEnteries" outlined  shaped>التالي</v-btn>
           </center>
         </v-col>
       </v-row>
