@@ -20,26 +20,28 @@
     <bases-table v-if="selectedOption === 'bases'"></bases-table>
     <total-table v-if="selectedOption === 'all'"></total-table>
     <v-row v-if="selectedOption !== null">
-      <v-col cols="5">
+      <v-col cols="12">
           <v-btn class="next-btn" @click="backToEnteries" outlined
             >الرجوع لصحفة المدخلات
           </v-btn>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="6">
           <v-btn class="next-btn" @click="computeNew" outlined>حساب جديد</v-btn>
       </v-col>
-      <v-col cols="3">
+      <v-col cols="6">
           <v-btn class="next-btn" @click="onGeneratePDF" outlined>تحميل PDF</v-btn>
       </v-col>
     </v-row>
     <basesPDF :generatePdf="generatePDF"></basesPDF>
+    <totalPDF :generatePdf="generatePDF"></totalPDF>
   </v-container>
 </template>
 
 <script>
 import basesPDF from '~/components/basesPDF.vue'
+import totalPDF from '~/components/totalPDF.vue'
 export default {
-  components: { basesPDF },
+  components: { basesPDF ,totalPDF},
   data() {
     return {
       generatePDF:false,
