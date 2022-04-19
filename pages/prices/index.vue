@@ -20,8 +20,8 @@
           <v-text-field
             outlined
             v-model="form.normal_concrete"
-            label="سعر الخرسانة العادية (م^3)"
-            placeholder="سعر الخرسانة العادية (م^3)"
+            label="الخرسانة العادية(م^3)"
+            placeholder="الخرسانة العادية(م^3)"
             :rules="requiredRules"
             color="black"
           >
@@ -31,8 +31,8 @@
           <v-text-field
             outlined
             v-model="form.iron_ton"
-            label="سعر(طن) الحديد"
-            placeholder="سعر (طن) الحديد"
+            label="(طن)الحديد"
+            placeholder="(طن)الحديد"
             :rules="requiredRules"
             color="black"
           >
@@ -42,8 +42,8 @@
           <v-text-field
             outlined
             v-model="form.blocks"
-            label="سعر البلك"
-            placeholder="سعر البلك"
+            label="(عدد 100)سعر البلك"
+            placeholder="(عدد 100)سعر البلك"
             :rules="requiredRules"
             color="black"
           >
