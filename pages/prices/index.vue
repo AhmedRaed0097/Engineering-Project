@@ -42,8 +42,8 @@
           <v-text-field
             outlined
             v-model="form.blocks"
-            label="البلك (عدد 100)"
-            placeholder="البلك (عدد 100)"
+            label="البلك (الحبة)"
+            placeholder="البلك (الحبة)"
             :rules="requiredRules"
             color="black"
           >
