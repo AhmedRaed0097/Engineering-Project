@@ -4,6 +4,7 @@
       :show-layout="false"
       :float-layout="true"
       :enable-download="true"
+       :preview-modal="false"
       :paginate-elements-by-height="1400"
       :filename="filename"
       :pdf-quality="2"
@@ -18,9 +19,11 @@
         <center>
           <v-row>
             <v-col cols="12" class="mb-10">
+
               <h3 class="text-center mb-10">
                 مساحة الدور المتكرر {{ totalArea }} م^2
               </h3>
+              <br>
               <v-simple-table>
                 <template v-slot:default>
                   <thead>
@@ -59,7 +62,7 @@
               </v-simple-table>
             </v-col>
           </v-row>
-        </center>
+          </center>
       </section>
     </vue-html2pdf>
     <v-overlay :value="showProgress">
@@ -111,12 +114,17 @@ export default {
     },
   },
   methods: {
-    generateReport() {
-      this.$refs.basesPdf.generatePdf()
+    async generateReport() {
+      await this.$refs.basesPdf.generatePdf()
+      this.$emit('pdfGenerated')
     },
     onProgress(e) {
       if (e === 100) {
-        this.showProgress = false
+        this.progressValue = e
+        setTimeout(() => {
+          this.showProgress = false
+
+        }, 500);
       } else {
         this.showProgress = true
         this.progressValue = e
@@ -125,7 +133,7 @@ export default {
   },
   mounted() {
     const date = new Date()
-    this.filename = `تقرير جديد ${date}`
+    this.filename = `(للقواعد)تقرير جديد ${date}`
   },
 }
 </script>

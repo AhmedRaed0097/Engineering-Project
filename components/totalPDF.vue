@@ -93,12 +93,18 @@ export default {
     },
   },
   methods: {
-    generateReport() {
-      this.$refs.basesPdf.generatePdf()
+    async generateReport() {
+      await this.$refs.totalPdf.generatePdf()
+      this.$emit('pdfGenerated')
+
     },
-    onProgress(e) {
+     onProgress(e) {
       if (e === 100) {
-        this.showProgress = false
+        this.progressValue = e
+        setTimeout(() => {
+          this.showProgress = false
+
+        }, 500);
       } else {
         this.showProgress = true
         this.progressValue = e
@@ -107,7 +113,7 @@ export default {
   },
   mounted() {
     const date = new Date()
-    this.filename = `تقرير جديد ${date}`
+    this.filename = `(الإجمالي)تقرير جديد ${date}`
   },
 }
 </script>

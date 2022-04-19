@@ -32,8 +32,8 @@
           <v-btn class="next-btn" @click="onGeneratePDF" outlined>تحميل PDF</v-btn>
       </v-col>
     </v-row>
-    <basesPDF :generatePdf="generatePDF"></basesPDF>
-    <totalPDF :generatePdf="generatePDF"></totalPDF>
+    <basesPDF v-if="selectedOption === 'bases'"  @pdfGenerated="onPDFGenerated" :generatePdf="generatePDF"></basesPDF>
+    <totalPDF  v-if="selectedOption === 'all'" @pdfGenerated="onPDFGenerated" :generatePdf="generatePDF"></totalPDF>
   </v-container>
 </template>
 
@@ -71,6 +71,9 @@ export default {
     backToEnteries() {
       this.$router.push('/enteries')
     },
+    onPDFGenerated(){
+      this.generatePDF = false
+    }
 
   },
     computed: {
