@@ -7,7 +7,7 @@
         </v-col>
         <v-col cols="6">
           <v-text-field
-            v-model="form.height"
+            v-model.number="form.height"
             label="الطول"
             placeholder="الطول"
             outlined
@@ -18,7 +18,7 @@
         </v-col>
         <v-col cols="6">
           <v-text-field
-            v-model="form.width"
+            v-model.number="form.width"
             label="العرض"
             placeholder="العرض"
             outlined
@@ -34,6 +34,20 @@
             :items="projections_number"
             label="عدد البروزات"
             placeholder="عدد البروزات"
+            outlined
+            :rules="fieldNumberRules"
+            :no-data-text="'لاتوجد بيانات'"
+            color="black"
+
+          >
+          </v-select>
+        </v-col>
+        <v-col cols="6">
+          <v-select
+            v-model="form.projections_size"
+            :items="projections_size"
+            label="مساحة البروز (متر)"
+            placeholder="مساحة البروز (متر)"
             outlined
             :rules="fieldNumberRules"
             :no-data-text="'لاتوجد بيانات'"
@@ -106,6 +120,7 @@ export default {
   data() {
     return {
       form: {
+        projection_size: 0,
         projection_number: '',
         floor_number: null,
         roof_type: '',
@@ -113,6 +128,7 @@ export default {
         height: '',
         width: '',
       },
+      projections_size: [1, 1.2, 1.4, 1.6],
       projections_number: [1, 2, 3, 4],
       floors_number: [3, 4, 5],
       soil_types: [

@@ -70,6 +70,7 @@ export default {
     meta: {
       title: 'Engineering-App',
       author: 'Ahmed Raed',
+      theme_color :'#7b7e87'
     },
     manifest: {
       name: 'Engineering-App',
