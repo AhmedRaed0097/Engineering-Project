@@ -31,10 +31,10 @@ export default {
     // { src: '~/plugins/qrCode', mode: 'client', ssr: false },
   ],
 
-// server:{
-//   host:'0.0.0.0',
-//   port:3000
-// },
+server:{
+  host:'0.0.0.0',
+  port:5000
+},
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
