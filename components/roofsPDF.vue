@@ -1,8 +1,8 @@
 <template>
   <div>
     <vue-html2pdf
-     :show-layout="true"
-      :float-layout="false"
+      :show-layout="false"
+      :float-layout="true"
       :enable-download="true"
       :preview-modal="false"
       :paginate-elements-by-height="1400"
@@ -19,11 +19,10 @@
         <center>
           <v-row>
             <v-col cols="12" class="mb-10">
-
               <h3 class="text-center mb-10">
                 مساحة الدور المتكرر {{ totalArea }} م^2
               </h3>
-              <br>
+              <br />
               <v-simple-table>
                 <template v-slot:default>
                   <thead>
@@ -37,21 +36,49 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>خرسانة النظافة للقواعد</td>
-                      <td>{{ qtys.normal_concrete_qty }}</td>
+                      <td>كمية الخرسانة للأسقف</td>
+                      <td>{{ qtys.roof_concrete_qty }}</td>
                       <td>م^3</td>
                       <td>{{ prices.normal_concrete }}</td>
-                      <td>{{ costs.normal_concrete_cost }}</td>
+                      <td>{{ costs.roof_concrete_cost }}</td>
                     </tr>
                     <tr>
-                      <td>خرسانة المسلحة للقواعد</td>
+                      <td>كمية الحديد للأسقف</td>
+                      <td>{{ qtys.roof_iron_qty }}</td>
+                      <td>طن</td>
+                      <td>{{ prices.iron_ton }}</td>
+                      <td>{{ costs.roof_iron_cost }}</td>
+                    </tr>
+                    <tr>
+                      <td>كمية خرسانة الجسور</td>
+                      <td>{{ qtys.bridge_concrete_qty }}</td>
+                      <td>م^3</td>
+                      <td>{{ prices.normal_concrete }}</td>
+                      <td>{{ costs.bridge_concrete_cost }}</td>
+                    </tr>
+                    <tr>
+                      <td>كمية حديد الجسور</td>
                       <td>{{ qtys.reinforces_concrete_qty }}</td>
                       <td>م^3</td>
-                      <td>{{ prices.reinforces_concrete }}</td>
-                      <td>{{ costs.reinforces_concrete_cost }}</td>
+                      <td>{{ prices.normal_concrete }}</td>
+                      <td>{{ costs.bridge_iron_cost }}</td>
                     </tr>
                     <tr>
-                      <td>حديد القواعد</td>
+                      <td>كمية خرسانة البلاطة</td>
+                      <td>{{ qtys.slab_concrete_qty }}</td>
+                      <td>م^3</td>
+                      <td>{{ prices.normal_concrete }}</td>
+                      <td>{{ costs.iron_cost }}</td>
+                    </tr>
+                    <tr>
+                      <td>كمية حديد البلاطة</td>
+                      <td>{{ qtys.iron_qty }}</td>
+                      <td>طن</td>
+                      <td>{{ prices.iron_ton }}</td>
+                      <td>{{ costs.iron_cost }}</td>
+                    </tr>
+                    <tr>
+                      <td>كمية البلك الهوردي</td>
                       <td>{{ qtys.iron_qty }}</td>
                       <td>طن</td>
                       <td>{{ prices.iron_ton }}</td>
@@ -62,7 +89,7 @@
               </v-simple-table>
             </v-col>
           </v-row>
-          </center>
+        </center>
       </section>
     </vue-html2pdf>
     <v-overlay :value="showProgress">
@@ -123,8 +150,7 @@ export default {
         this.progressValue = e
         setTimeout(() => {
           this.showProgress = false
-
-        }, 500);
+        }, 500)
       } else {
         this.showProgress = true
         this.progressValue = e
@@ -133,7 +159,7 @@ export default {
   },
   mounted() {
     const date = new Date()
-    this.filename = `(للقواعد)تقرير جديد ${date}`
+    this.filename = `(للأسقف)تقرير جديد ${date}`
   },
 }
 </script>

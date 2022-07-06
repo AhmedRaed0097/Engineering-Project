@@ -1,9 +1,10 @@
 <template>
   <div>
     <vue-html2pdf
-      :show-layout="false"
-      :float-layout="true"
+      :show-layout="true"
+      :float-layout="false"
       :enable-download="true"
+      :preview-modal="false"
       :paginate-elements-by-height="1400"
       :filename="filename"
       :pdf-quality="2"

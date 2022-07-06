@@ -17,23 +17,36 @@
         </v-select>
       </v-col>
     </v-row>
-    <bases-table v-if="selectedOption === 'bases'"></bases-table>
-    <total-table v-if="selectedOption === 'all'"></total-table>
+    <basesPDF
+      v-if="selectedOption === 'bases'"
+      @pdfGenerated="onPDFGenerated"
+      :generatePdf="generatePDF"
+    ></basesPDF>
+    <roofsPDF
+      v-if="selectedOption === 'roofs'"
+      @pdfGenerated="onPDFGenerated"
+      :generatePdf="generatePDF"
+    ></roofsPDF>
+    <totalPDF
+      v-if="selectedOption === 'all'"
+      @pdfGenerated="onPDFGenerated"
+      :generatePdf="generatePDF"
+    ></totalPDF>
     <v-row v-if="selectedOption !== null">
       <v-col cols="12">
-          <v-btn class="next-btn" @click="backToEnteries" outlined
-            >الرجوع لصحفة المدخلات
-          </v-btn>
+        <v-btn class="next-btn" @click="backToEnteries" outlined
+          >الرجوع لصحفة المدخلات
+        </v-btn>
       </v-col>
       <v-col cols="6">
-          <v-btn class="next-btn" @click="computeNew" outlined>حساب جديد</v-btn>
+        <v-btn class="next-btn" @click="computeNew" outlined>حساب جديد</v-btn>
       </v-col>
       <v-col cols="6">
-          <v-btn class="next-btn" @click="onGeneratePDF" outlined>تحميل PDF</v-btn>
+        <v-btn class="next-btn" @click="onGeneratePDF" outlined
+          >تحميل PDF</v-btn
+        >
       </v-col>
     </v-row>
-    <basesPDF v-if="selectedOption === 'bases'"  @pdfGenerated="onPDFGenerated" :generatePdf="generatePDF"></basesPDF>
-    <totalPDF  v-if="selectedOption === 'all'" @pdfGenerated="onPDFGenerated" :generatePdf="generatePDF"></totalPDF>
   </v-container>
 </template>
 
@@ -41,15 +54,19 @@
 import basesPDF from '~/components/basesPDF.vue'
 import totalPDF from '~/components/totalPDF.vue'
 export default {
-  components: { basesPDF ,totalPDF},
+  components: { basesPDF, totalPDF },
   data() {
     return {
-      generatePDF:false,
+      generatePDF: false,
       selectedOption: null,
       options: [
         {
           title: 'حساب الكميات والتكلفة للقواعد',
           value: 'bases',
+        },
+        {
+          title: 'حساب الكميات والتكلفة للأسقف',
+          value: 'roofs',
         },
         {
           title: 'حساب إجمالي الكميات والتكلفة',
@@ -61,7 +78,7 @@ export default {
   },
 
   methods: {
-    onGeneratePDF(){
+    onGeneratePDF() {
       this.generatePDF = true
     },
     computeNew() {
@@ -71,12 +88,11 @@ export default {
     backToEnteries() {
       this.$router.push('/enteries')
     },
-    onPDFGenerated(){
+    onPDFGenerated() {
       this.generatePDF = false
-    }
-
+    },
   },
-    computed: {
+  computed: {
     prices() {
       return this.$store.state.prices
     },

@@ -22,9 +22,13 @@ export const state = () => ({
   costs: {
     reinforces_concrete_cost: null,
     normal_concrete_cost: null,
-    roof__concrete_cost: null,
-    roof__iron_qty: null,
+    roof_concrete_cost: null,
+    roof_iron_cost: null,
     iron_cost: null,
+    bridge_concrete_cost: null,
+    bridge_iron_cost: null,
+    slab_concrete_cost: null,
+    slab_iron_cost: null,
   },
 })
 
