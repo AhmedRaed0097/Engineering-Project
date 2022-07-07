@@ -33,15 +33,15 @@
                   <tbody>
                     <tr>
                       <td>خرسانة النظافة للقواعد</td>
-                      <td>{{ costs.normal_concrete_cost }}</td>
+                      <td>{{ costs.bases_normal_concrete_cost }}</td>
                     </tr>
                     <tr>
                       <td>خرسانة المسلحة للقواعد</td>
-                      <td>{{ costs.reinforces_concrete_cost }}</td>
+                      <td>{{ costs.bases_reinforces_concrete_cost }}</td>
                     </tr>
                     <tr>
                       <td>حديد القواعد</td>
-                      <td>{{ costs.iron_cost }}</td>
+                      <td>{{ costs.bases_iron_cost }}</td>
                     </tr>
                   </tbody>
                 </template>
@@ -95,6 +95,7 @@ export default {
   },
   methods: {
     async generateReport() {
+    this.filename = `(الإجمالي)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
       await this.$refs.totalPdf.generatePdf()
       this.$emit('pdfGenerated')
 
@@ -114,7 +115,7 @@ export default {
   },
   mounted() {
     const date = new Date()
-    this.filename = `(الإجمالي)تقرير جديد ${date}`
+    this.filename = `(الإجمالي)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
   },
 }
 </script>

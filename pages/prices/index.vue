@@ -8,7 +8,7 @@
         <v-col cols="6">
           <v-text-field
             outlined
-            v-model="form.reinforces_concrete"
+            v-model.number="form.reinforces_concrete"
             label=" الخرسانة المسلحة (م^3)"
             placeholder=" الخرسانة المسلحة (م^3)"
             :rules="requiredRules"
@@ -19,7 +19,7 @@
         <v-col cols="6">
           <v-text-field
             outlined
-            v-model="form.normal_concrete"
+            v-model.number="form.normal_concrete"
             label="الخرسانة العادية (م^3)"
             placeholder="الخرسانة العادية (م^3)"
             :rules="requiredRules"
@@ -30,7 +30,7 @@
         <v-col cols="6">
           <v-text-field
             outlined
-            v-model="form.iron_ton"
+            v-model.number="form.iron_ton"
             label="الحديد (طن)"
             placeholder="الحديد (طن)"
             :rules="requiredRules"
@@ -41,9 +41,9 @@
         <v-col cols="6">
           <v-text-field
             outlined
-            v-model="form.blocks"
-            label="البلك (الحبة)"
-            placeholder="البلك (الحبة)"
+            v-model.number="form.blocks"
+            label="بلك السقف الهوردي (الحبة)"
+            placeholder="بلك السقف الهوردي (الحبة)"
             :rules="requiredRules"
             color="black"
           >

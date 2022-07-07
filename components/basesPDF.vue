@@ -38,24 +38,24 @@
                   <tbody>
                     <tr>
                       <td>خرسانة النظافة للقواعد</td>
-                      <td>{{ qtys.normal_concrete_qty }}</td>
+                      <td>{{ qtys.bases_normal_concrete_qty }}</td>
                       <td>م^3</td>
                       <td>{{ prices.normal_concrete }}</td>
-                      <td>{{ costs.normal_concrete_cost }}</td>
+                      <td>{{ costs.bases_normal_concrete_cost }}</td>
                     </tr>
                     <tr>
                       <td>خرسانة المسلحة للقواعد</td>
-                      <td>{{ qtys.reinforces_concrete_qty }}</td>
+                      <td>{{ qtys.bases_reinforces_concrete_qty }}</td>
                       <td>م^3</td>
                       <td>{{ prices.reinforces_concrete }}</td>
-                      <td>{{ costs.reinforces_concrete_cost }}</td>
+                      <td>{{ costs.bases_reinforces_concrete_cost }}</td>
                     </tr>
                     <tr>
                       <td>حديد القواعد</td>
-                      <td>{{ qtys.iron_qty }}</td>
+                      <td>{{ qtys.bases_iron_qty }}</td>
                       <td>طن</td>
                       <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.iron_cost }}</td>
+                      <td>{{ costs.bases_iron_cost }}</td>
                     </tr>
                   </tbody>
                 </template>
@@ -115,6 +115,7 @@ export default {
   },
   methods: {
     async generateReport() {
+    this.filename = `(للقواعد)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
       await this.$refs.basesPdf.generatePdf()
       this.$emit('pdfGenerated')
     },
@@ -132,8 +133,7 @@ export default {
     },
   },
   mounted() {
-    const date = new Date()
-    this.filename = `(للقواعد)تقرير جديد ${date}`
+    this.filename = `(للقواعد)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
   },
 }
 </script>

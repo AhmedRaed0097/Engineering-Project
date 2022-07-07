@@ -1,8 +1,8 @@
 <template>
   <div>
     <vue-html2pdf
-      :show-layout="false"
-      :float-layout="true"
+      :show-layout="true"
+      :float-layout="false"
       :enable-download="true"
       :preview-modal="false"
       :paginate-elements-by-height="1400"
@@ -39,7 +39,7 @@
                       <td>كمية الخرسانة للأسقف</td>
                       <td>{{ qtys.roof_concrete_qty }}</td>
                       <td>م^3</td>
-                      <td>{{ prices.normal_concrete }}</td>
+                      <td>{{ prices.reinforces_concrete }}</td>
                       <td>{{ costs.roof_concrete_cost }}</td>
                     </tr>
                     <tr>
@@ -53,36 +53,36 @@
                       <td>كمية خرسانة الجسور</td>
                       <td>{{ qtys.bridge_concrete_qty }}</td>
                       <td>م^3</td>
-                      <td>{{ prices.normal_concrete }}</td>
+                      <td>{{ prices.reinforces_concrete }}</td>
                       <td>{{ costs.bridge_concrete_cost }}</td>
                     </tr>
                     <tr>
                       <td>كمية حديد الجسور</td>
-                      <td>{{ qtys.reinforces_concrete_qty }}</td>
-                      <td>م^3</td>
-                      <td>{{ prices.normal_concrete }}</td>
+                      <td>{{ qtys.bridge_iron_qty }}</td>
+                      <td>طن</td>
+                      <td>{{ prices.iron_ton }}</td>
                       <td>{{ costs.bridge_iron_cost }}</td>
                     </tr>
                     <tr>
                       <td>كمية خرسانة البلاطة</td>
                       <td>{{ qtys.slab_concrete_qty }}</td>
                       <td>م^3</td>
-                      <td>{{ prices.normal_concrete }}</td>
-                      <td>{{ costs.iron_cost }}</td>
+                      <td>{{ prices.reinforces_concrete }}</td>
+                      <td>{{ costs.slab_concrete_cost }}</td>
                     </tr>
                     <tr>
                       <td>كمية حديد البلاطة</td>
-                      <td>{{ qtys.iron_qty }}</td>
+                      <td>{{ qtys.slab_iron_qty }}</td>
                       <td>طن</td>
                       <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.iron_cost }}</td>
+                      <td>{{ costs.slab_iron_cost }}</td>
                     </tr>
                     <tr>
                       <td>كمية البلك الهوردي</td>
-                      <td>{{ qtys.iron_qty }}</td>
-                      <td>طن</td>
-                      <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.iron_cost }}</td>
+                      <td>{{ qtys.block_qty }}</td>
+                      <td>1 بلكة</td>
+                      <td>{{ prices.blocks }}</td>
+                      <td>{{ costs.block_cost }}</td>
                     </tr>
                   </tbody>
                 </template>
@@ -142,6 +142,8 @@ export default {
   },
   methods: {
     async generateReport() {
+    this.filename = `(للأسقف)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
+
       await this.$refs.basesPdf.generatePdf()
       this.$emit('pdfGenerated')
     },
@@ -158,8 +160,7 @@ export default {
     },
   },
   mounted() {
-    const date = new Date()
-    this.filename = `(للأسقف)تقرير جديد ${date}`
+    this.filename = `(للأسقف)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
   },
 }
 </script>
