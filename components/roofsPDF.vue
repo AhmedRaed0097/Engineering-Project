@@ -36,49 +36,49 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>كمية الخرسانة للأسقف</td>
+                      <td>الخرسانة للأسقف</td>
                       <td>{{ qtys.roof_concrete_qty }}</td>
                       <td>م^3</td>
                       <td>{{ prices.reinforces_concrete }}</td>
                       <td>{{ costs.roof_concrete_cost }}</td>
                     </tr>
                     <tr>
-                      <td>كمية الحديد للأسقف</td>
+                      <td>الحديد للأسقف</td>
                       <td>{{ qtys.roof_iron_qty }}</td>
                       <td>طن</td>
                       <td>{{ prices.iron_ton }}</td>
                       <td>{{ costs.roof_iron_cost }}</td>
                     </tr>
                     <tr>
-                      <td>كمية خرسانة الجسور</td>
+                      <td>خرسانة الجسور</td>
                       <td>{{ qtys.bridge_concrete_qty }}</td>
                       <td>م^3</td>
                       <td>{{ prices.reinforces_concrete }}</td>
                       <td>{{ costs.bridge_concrete_cost }}</td>
                     </tr>
                     <tr>
-                      <td>كمية حديد الجسور</td>
+                      <td>حديد الجسور</td>
                       <td>{{ qtys.bridge_iron_qty }}</td>
                       <td>طن</td>
                       <td>{{ prices.iron_ton }}</td>
                       <td>{{ costs.bridge_iron_cost }}</td>
                     </tr>
                     <tr>
-                      <td>كمية خرسانة البلاطة</td>
+                      <td>خرسانة البلاطة</td>
                       <td>{{ qtys.slab_concrete_qty }}</td>
                       <td>م^3</td>
                       <td>{{ prices.reinforces_concrete }}</td>
                       <td>{{ costs.slab_concrete_cost }}</td>
                     </tr>
                     <tr>
-                      <td>كمية حديد البلاطة</td>
+                      <td>حديد البلاطة</td>
                       <td>{{ qtys.slab_iron_qty }}</td>
                       <td>طن</td>
                       <td>{{ prices.iron_ton }}</td>
                       <td>{{ costs.slab_iron_cost }}</td>
                     </tr>
                     <tr>
-                      <td>كمية البلك الهوردي</td>
+                      <td>البلك الهوردي</td>
                       <td>{{ qtys.block_qty }}</td>
                       <td>1 بلكة</td>
                       <td>{{ prices.blocks }}</td>
