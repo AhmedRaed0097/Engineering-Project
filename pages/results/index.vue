@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row :class="!selectedOption ? 'options-row' : 'mt-6'">
+    <v-row :class="!selectedOption ? 'options-row' : 'table-wrapper mt-6'">
       <v-col cols="12">
         <v-select
           v-model="selectedOption"
@@ -115,6 +115,12 @@ export default {
     height: 100%;
     display: flex;
     align-items: center;
+  }
+  .table-wrapper{
+    padding: 0 10px !important;
+    .col-12{
+      padding: 0 !important;
+    }
   }
 }
 </style>
