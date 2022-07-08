@@ -111,110 +111,110 @@ export const mutations = {
     // ===================== COMPUTE roofs qtys ===================================
     // حساب كمية الخرسانة للأسقف
     if (
-      state.enteries.roof_size <= 150 ||
-      (state.enteries.roof_size >= 150 && state.enteries.roof_size < 250)
+      state.total_area <= 150 ||
+      (state.total_area >= 150 && state.total_area < 250)
     ) {
-      state.qtys.roof_concrete_qty = (0.212 * state.enteries.roof_size).toFixed(2)
+      state.qtys.roof_concrete_qty = (0.212 * state.total_area).toFixed(2)
     } else if (
-      state.enteries.roof_size >= 250 &&
-      state.enteries.roof_size < 400
+      state.total_area >= 250 &&
+      state.total_area < 400
     ) {
-      state.qtys.roof_concrete_qty = (0.222 * state.enteries.roof_size).toFixed(2)
-    } else if (state.enteries.roof_size >= 400) {
-      state.qtys.roof_concrete_qty = (0.233 * state.enteries.roof_size).toFixed(2)
+      state.qtys.roof_concrete_qty = (0.222 * state.total_area).toFixed(2)
+    } else if (state.total_area >= 400) {
+      state.qtys.roof_concrete_qty = (0.233 * state.total_area).toFixed(2)
     }
 
     // حساب كمية الحديد للأسقف
     if (
-      state.enteries.roof_size <= 150 ||
-      (state.enteries.roof_size >= 150 && state.enteries.roof_size < 250)
+      state.total_area <= 150 ||
+      (state.total_area >= 150 && state.total_area < 250)
     ) {
       state.qtys.roof_iron_qty = (0.14 * state.qtys.roof_concrete_qty).toFixed(2)
     } else if (
-      state.enteries.roof_size >= 250 &&
-      state.enteries.roof_size < 399
+      state.total_area >= 250 &&
+      state.total_area < 400
     ) {
       state.qtys.roof_iron_qty = (0.142 * state.qtys.roof_concrete_qty).toFixed(2)
-    } else if (state.enteries.roof_size >= 400) {
+    } else if (state.total_area >= 400) {
       state.qtys.roof_iron_qty = (0.162 * state.qtys.roof_concrete_qty).toFixed(2)
     }
 
     // حساب كمية خرسانة الجسور
 
     if (
-      state.enteries.roof_size <= 150 ||
-      (state.enteries.roof_size >= 150 && state.enteries.roof_size < 250)
+      state.total_area <= 150 ||
+      (state.total_area >= 150 && state.total_area < 250)
     ) {
       state.qtys.bridge_concrete_qty = (0.67 * state.qtys.roof_concrete_qty).toFixed(2)
     } else if (
-      state.enteries.roof_size >= 250 &&
-      state.enteries.roof_size < 399
+      state.total_area >= 250 &&
+      state.total_area < 400
     ) {
       state.qtys.bridge_concrete_qty = (0.69 * state.qtys.roof_concrete_qty).toFixed(2)
-    } else if (state.enteries.roof_size >= 400) {
+    } else if (state.total_area >= 400) {
       state.qtys.bridge_concrete_qty = (0.72 * state.qtys.roof_concrete_qty).toFixed(2)
     }
 
     // حساب كمية خرسانة البلاطة
 
     if (
-      state.enteries.roof_size <= 150 ||
-      (state.enteries.roof_size >= 150 && state.enteries.roof_size < 250)
+      state.total_area <= 150 ||
+      (state.total_area >= 150 && state.total_area < 250)
     ) {
       state.qtys.slab_concrete_qty = (0.33 * state.qtys.roof_concrete_qty).toFixed(2)
     } else if (
-      state.enteries.roof_size >= 250 &&
-      state.enteries.roof_size < 399
+      state.total_area >= 250 &&
+      state.total_area < 400
     ) {
       state.qtys.slab_concrete_qty = (0.31 * state.qtys.roof_concrete_qty).toFixed(2)
-    } else if (state.enteries.roof_size >= 400) {
+    } else if (state.total_area >= 400) {
       state.qtys.slab_concrete_qty = (0.28 * state.qtys.roof_concrete_qty).toFixed(2)
     }
 
     // حساب كمية حديد الجسور
 
     if (
-      state.enteries.roof_size <= 150 ||
-      (state.enteries.roof_size >= 150 && state.enteries.roof_size < 250)
+      state.total_area <= 150 ||
+      (state.total_area >= 150 && state.total_area < 250)
     ) {
       state.qtys.bridge_iron_qty = (0.65 * state.qtys.roof_iron_qty).toFixed(2)
     } else if (
-      state.enteries.roof_size >= 250 &&
-      state.enteries.roof_size < 399
+      state.total_area >= 250 &&
+      state.total_area < 400
     ) {
       state.qtys.bridge_iron_qty = (0.68 * state.qtys.roof_iron_qty).toFixed(2)
-    } else if (state.enteries.roof_size >= 400) {
+    } else if (state.total_area >= 400) {
       state.qtys.bridge_iron_qty = (0.28 * state.qtys.roof_iron_qty).toFixed(2)
     }
 
     // حساب كمية حديد البلاطة
 
     if (
-      state.enteries.roof_size <= 150 ||
-      (state.enteries.roof_size >= 150 && state.enteries.roof_size < 250)
+      state.total_area <= 150 ||
+      (state.total_area >= 150 && state.total_area < 250)
     ) {
       state.qtys.slab_iron_qty = (0.35 * state.qtys.roof_iron_qty).toFixed(2)
     } else if (
-      state.enteries.roof_size >= 250 &&
-      state.enteries.roof_size < 399
+      state.total_area >= 250 &&
+      state.total_area < 400
     ) {
       state.qtys.slab_iron_qty = (0.32 * state.qtys.roof_iron_qty).toFixed(2)
-    } else if (state.enteries.roof_size >= 400) {
+    } else if (state.total_area >= 400) {
       state.qtys.slab_iron_qty = (0.27 * state.qtys.roof_iron_qty).toFixed(2)
     }
 
     // حساب كمية البلك الهوردي
     if (
-      state.enteries.roof_size <= 150 ||
-      (state.enteries.roof_size >= 150 && state.enteries.roof_size < 250)
+      state.total_area <= 150 ||
+      (state.total_area >= 150 && state.total_area < 250)
     ) {
       state.qtys.block_qty = ((0.088 * state.total_area) / 0.016).toFixed(2)
     } else if (
-      state.enteries.roof_size >= 250 &&
-      state.enteries.roof_size < 399
+      state.total_area >= 250 &&
+      state.total_area < 400
     ) {
       state.qtys.block_qty = ((0.078 * state.total_area) / 0.016).toFixed(2)
-    } else if (state.enteries.roof_size >= 400) {
+    } else if (state.total_area >= 400) {
       state.qtys.block_qty = ((0.067 * state.total_area) / 0.016).toFixed(2)
     }
   },
