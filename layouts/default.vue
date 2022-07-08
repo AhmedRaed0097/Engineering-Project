@@ -102,7 +102,7 @@ body {
   margin-left: 0px;
 }
 
-.v-application--wrap {
-  overflow: hidden;
-}
+// .v-application--wrap {
+//   overflow: hidden;
+// }
 </style>
