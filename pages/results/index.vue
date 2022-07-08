@@ -60,18 +60,18 @@ export default {
       generatePDF: false,
       selectedOption: null,
       options: [
-        {
-          title: 'حساب الكميات والتكلفة للقواعد',
-          value: 'bases',
-        },
+        // {
+        //   title: 'حساب الكميات والتكلفة للقواعد',
+        //   value: 'bases',
+        // },
         {
           title: 'حساب الكميات والتكلفة للأسقف',
           value: 'roofs',
         },
-        {
-          title: 'حساب إجمالي الكميات والتكلفة',
-          value: 'all',
-        },
+        // {
+        //   title: 'حساب إجمالي الكميات والتكلفة',
+        //   value: 'all',
+        // },
       ],
       requiredRules: [(v) => !!v || 'الحقل مطلوب'],
     }
@@ -113,8 +113,8 @@ export default {
   height: 100%;
   .options-row {
     height: 100%;
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
   }
   .table-wrapper{
     padding: 0 10px !important;
