@@ -39,19 +39,19 @@ export const mutations = {
     state.enteries = payload
     if (payload.projection_number === 1) {
       state.total_area =
-        (payload.width + payload.projections_size) * payload.height
+        ((payload.width + payload.projections_size) * payload.height).toFixed(2)
     } else if (payload.projection_number === 2) {
       state.total_area =
-        (payload.width + payload.projections_size) *
-        (payload.height + payload.projections_size)
+        ((payload.width + payload.projections_size) *
+          (payload.height + payload.projections_size)).toFixed(2)
     } else if (payload.projection_number === 3) {
       state.total_area =
-        (payload.width + payload.projections_size) *
-        (payload.height + 2 * payload.projections_size)
+        ((payload.width + payload.projections_size) *
+          (payload.height + 2 * payload.projections_size)).toFixed(2)
     } else if (payload.projection_number === 4) {
       state.total_area =
-        (payload.width + 2 * payload.projections_size) *
-        (payload.height + 2 * payload.projections_size)
+        ((payload.width + 2 * payload.projections_size) *
+          (payload.height + 2 * payload.projections_size)).toFixed(2)
     }
 
     // ================= 3 FLOOR ============================
