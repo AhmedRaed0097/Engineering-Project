@@ -104,18 +104,6 @@
           >
           </v-select>
         </v-col>
-        <v-col cols="6">
-            <v-text-field
-            v-model.number="form.roof_size"
-           label="مساحة السقف"
-            placeholder="مساحة السقف"
-            outlined
-            :rules="fieldNumberRules"
-            color="black"
-
-          >  </v-text-field>
-        </v-col>
-
         <v-col cols="12">
           <center>
             <v-btn class="option-btn" @click="sendEnteries" outlined  shaped>التالي</v-btn>
@@ -135,7 +123,6 @@ export default {
         projection_number: '',
         floor_number: null,
         roof_type: '',
-        roof_size: '',
         soil_type: '',
         height: '',
         width: '',
@@ -168,20 +155,6 @@ export default {
           title: 'هوردي',
           value: 'hordy',
         },
-      ],
-      roof_size: [
-        {
-          text :'150-249 م^2',
-          value : 249
-        },
-        {
-          text :'250-399 م^2',
-          value : 399
-        },
-        {
-          text :'400-700 م^2',
-          value : 500
-        }
       ],
       fieldNumberRules: [
         (v) => !!v || 'الحقل مطلوب',
