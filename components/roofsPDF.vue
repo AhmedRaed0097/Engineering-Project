@@ -18,7 +18,7 @@
       <section slot="pdf-content">
         <center>
           <v-row>
-            <v-col cols="12" class="mb-10">
+            <v-col cols="11" class="mb-10">
               <h3 class="text-center mb-10">
                 مساحة الدور المتكرر {{ totalArea }} م^2
               </h3>
