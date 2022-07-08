@@ -16,7 +16,6 @@
       ref="basesPdf"
     >
       <section slot="pdf-content">
-        <center>
           <v-row>
             <v-col cols="11" class="mb-10">
               <h3 class="text-center mb-10">
@@ -35,20 +34,6 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>الخرسانة للأسقف</td>
-                      <td>{{ qtys.roof_concrete_qty }}</td>
-                      <td>م^3</td>
-                      <td>{{ prices.reinforces_concrete }}</td>
-                      <td>{{ costs.roof_concrete_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>الحديد للأسقف</td>
-                      <td>{{ qtys.roof_iron_qty }}</td>
-                      <td>طن</td>
-                      <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.roof_iron_cost }}</td>
-                    </tr>
                     <tr>
                       <td>خرسانة الجسور</td>
                       <td>{{ qtys.bridge_concrete_qty }}</td>
@@ -80,16 +65,29 @@
                     <tr>
                       <td>البلك الهوردي</td>
                       <td>{{ qtys.block_qty }}</td>
-                      <td>1 بلكة</td>
+                      <td>بلكة</td>
                       <td>{{ prices.blocks }}</td>
                       <td>{{ costs.block_cost }}</td>
+                    </tr>
+                    <tr>
+                      <td>إجمالي الخرسانة للسقف</td>
+                      <td>{{ qtys.roof_concrete_qty }}</td>
+                      <td>م^3</td>
+                      <td>{{ prices.reinforces_concrete }}</td>
+                      <td>{{ costs.roof_concrete_cost }}</td>
+                    </tr>
+                    <tr>
+                      <td>إجمالي الحديد للسقف</td>
+                      <td>{{ qtys.roof_iron_qty }}</td>
+                      <td>طن</td>
+                      <td>{{ prices.iron_ton }}</td>
+                      <td>{{ costs.roof_iron_cost }}</td>
                     </tr>
                   </tbody>
                 </template>
               </v-simple-table>
             </v-col>
           </v-row>
-        </center>
       </section>
     </vue-html2pdf>
     <v-overlay :value="showProgress">
@@ -142,7 +140,10 @@ export default {
   },
   methods: {
     async generateReport() {
-    this.filename = `(للأسقف)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
+      this.filename = `(للأسقف)تقرير جديد ${new Date()
+        .getTime()
+        .toString()
+        .slice(new Date().getTime().toString().length / 2)}`
 
       await this.$refs.basesPdf.generatePdf()
       this.$emit('pdfGenerated')
@@ -160,7 +161,10 @@ export default {
     },
   },
   mounted() {
-    this.filename = `(للأسقف)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
+    this.filename = `(للأسقف)تقرير جديد ${new Date()
+      .getTime()
+      .toString()
+      .slice(new Date().getTime().toString().length / 2)}`
   },
 }
 </script>
