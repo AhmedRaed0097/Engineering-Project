@@ -24,7 +24,6 @@
             outlined
             :rules="fieldNumberRules"
             color="black"
-
           >
           </v-text-field>
         </v-col>
@@ -38,7 +37,6 @@
             :rules="fieldNumberRules"
             :no-data-text="'لاتوجد بيانات'"
             color="black"
-
           >
           </v-select>
         </v-col>
@@ -52,7 +50,6 @@
             :rules="fieldNumberRules"
             :no-data-text="'لاتوجد بيانات'"
             color="black"
-
           >
           </v-select>
         </v-col>
@@ -66,7 +63,6 @@
             :rules="fieldNumberRules"
             :no-data-text="'لاتوجد بيانات'"
             color="black"
-
           >
           </v-select>
         </v-col>
@@ -84,7 +80,6 @@
             :rules="requiredRules"
             :no-data-text="'لاتوجد بيانات'"
             color="black"
-
           >
           </v-select>
         </v-col>
@@ -100,13 +95,30 @@
             :rules="requiredRules"
             :no-data-text="'لاتوجد بيانات'"
             color="black"
-
           >
           </v-select>
         </v-col>
+        <v-col cols="6">
+          <v-text-field
+            v-model.number="form.roof_area"
+            label="مساحة السقف (إختياري)"
+            placeholder="مساحة السقف (إختياري)"
+            outlined
+            hide-details
+            color="black"
+          >
+          </v-text-field>
+          <small>
+            <strong>
+            في حالة عدم إدخال مساحة السقف سيتم إعتماد مساحة الدور المتكرر
+            </strong>
+            </small>
+        </v-col>
         <v-col cols="12">
           <center>
-            <v-btn class="option-btn" @click="sendEnteries" outlined  shaped>التالي</v-btn>
+            <v-btn class="option-btn" @click="sendEnteries" outlined shaped
+              >التالي</v-btn
+            >
           </center>
         </v-col>
       </v-row>
@@ -122,6 +134,7 @@ export default {
         projection_size: 0,
         projection_number: '',
         floor_number: null,
+        roof_area: null,
         roof_type: '',
         soil_type: '',
         height: '',
