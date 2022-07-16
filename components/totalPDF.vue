@@ -19,9 +19,11 @@
         <center>
           <v-row>
             <v-col cols="11">
-              <h3 class="text-center mb-5">
-                مساحة الدور المتكرر {{ totalArea }} م^2
-              </h3>
+              <div class="pdf-title-wrapper">
+                <h3 class="text-center mb-10">
+                  مساحة الدور المتكرر {{ totalArea }} م^2
+                </h3>
+              </div>
               <v-simple-table>
                 <template v-slot:default>
                   <thead>
@@ -95,18 +97,19 @@ export default {
   },
   methods: {
     async generateReport() {
-    this.filename = `(الإجمالي)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
+      this.filename = `(الإجمالي)تقرير جديد ${new Date()
+        .getTime()
+        .toString()
+        .slice(new Date().getTime().toString().length / 2)}`
       await this.$refs.totalPdf.generatePdf()
       this.$emit('pdfGenerated')
-
     },
-     onProgress(e) {
+    onProgress(e) {
       if (e === 100) {
         this.progressValue = e
         setTimeout(() => {
           this.showProgress = false
-
-        }, 500);
+        }, 500)
       } else {
         this.showProgress = true
         this.progressValue = e
@@ -115,8 +118,10 @@ export default {
   },
   mounted() {
     const date = new Date()
-    this.filename = `(الإجمالي)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
+    this.filename = `(الإجمالي)تقرير جديد ${new Date()
+      .getTime()
+      .toString()
+      .slice(new Date().getTime().toString().length / 2)}`
   },
 }
 </script>
-<style></style>

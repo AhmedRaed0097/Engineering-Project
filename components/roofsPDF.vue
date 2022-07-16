@@ -16,78 +16,80 @@
       ref="basesPdf"
     >
       <section slot="pdf-content">
-          <v-row>
-            <v-col cols="11" class="mb-10">
+        <v-row>
+          <v-col cols="11" class="mb-10">
+            <div class="pdf-title-wrapper">
               <h3 class="text-center mb-10">
                 مساحة الدور المتكرر {{ totalArea }} م^2
               </h3>
-              <br />
-              <v-simple-table>
-                <template v-slot:default>
-                  <thead>
-                    <tr>
-                      <th>العنصر</th>
-                      <th>الكمية</th>
-                      <th>الوحدة</th>
-                      <th>سعر الوحدة</th>
-                      <th>التكلفة الإجمالية</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>خرسانة الجسور</td>
-                      <td>{{ qtys.bridge_concrete_qty }}</td>
-                      <td>م^3</td>
-                      <td>{{ prices.reinforces_concrete }}</td>
-                      <td>{{ costs.bridge_concrete_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>حديد الجسور</td>
-                      <td>{{ qtys.bridge_iron_qty }}</td>
-                      <td>طن</td>
-                      <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.bridge_iron_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>خرسانة البلاطة</td>
-                      <td>{{ qtys.slab_concrete_qty }}</td>
-                      <td>م^3</td>
-                      <td>{{ prices.reinforces_concrete }}</td>
-                      <td>{{ costs.slab_concrete_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>حديد البلاطة</td>
-                      <td>{{ qtys.slab_iron_qty }}</td>
-                      <td>طن</td>
-                      <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.slab_iron_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>البلك الهوردي</td>
-                      <td>{{ qtys.block_qty }}</td>
-                      <td>بلكة</td>
-                      <td>{{ prices.blocks }}</td>
-                      <td>{{ costs.block_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>إجمالي الخرسانة للسقف</td>
-                      <td>{{ qtys.roof_concrete_qty }}</td>
-                      <td>م^3</td>
-                      <td>{{ prices.reinforces_concrete }}</td>
-                      <td>{{ costs.roof_concrete_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>إجمالي الحديد للسقف</td>
-                      <td>{{ qtys.roof_iron_qty }}</td>
-                      <td>طن</td>
-                      <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.roof_iron_cost }}</td>
-                    </tr>
-                  </tbody>
-                </template>
-              </v-simple-table>
-            </v-col>
-          </v-row>
+            </div>
+            <br />
+            <v-simple-table>
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th>العنصر</th>
+                    <th>الكمية</th>
+                    <th>الوحدة</th>
+                    <th>سعر الوحدة</th>
+                    <th>التكلفة الإجمالية</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>خرسانة الجسور</td>
+                    <td>{{ qtys.bridge_concrete_qty }}</td>
+                    <td>م^3</td>
+                    <td>{{ prices.reinforces_concrete }}</td>
+                    <td>{{ costs.bridge_concrete_cost }}</td>
+                  </tr>
+                  <tr>
+                    <td>حديد الجسور</td>
+                    <td>{{ qtys.bridge_iron_qty }}</td>
+                    <td>طن</td>
+                    <td>{{ prices.iron_ton }}</td>
+                    <td>{{ costs.bridge_iron_cost }}</td>
+                  </tr>
+                  <tr>
+                    <td>خرسانة البلاطة</td>
+                    <td>{{ qtys.slab_concrete_qty }}</td>
+                    <td>م^3</td>
+                    <td>{{ prices.reinforces_concrete }}</td>
+                    <td>{{ costs.slab_concrete_cost }}</td>
+                  </tr>
+                  <tr>
+                    <td>حديد البلاطة</td>
+                    <td>{{ qtys.slab_iron_qty }}</td>
+                    <td>طن</td>
+                    <td>{{ prices.iron_ton }}</td>
+                    <td>{{ costs.slab_iron_cost }}</td>
+                  </tr>
+                  <tr>
+                    <td>البلك الهوردي</td>
+                    <td>{{ qtys.block_qty }}</td>
+                    <td>بلكة</td>
+                    <td>{{ prices.blocks }}</td>
+                    <td>{{ costs.block_cost }}</td>
+                  </tr>
+                  <tr>
+                    <td>إجمالي الخرسانة للسقف</td>
+                    <td>{{ qtys.roof_concrete_qty }}</td>
+                    <td>م^3</td>
+                    <td>{{ prices.reinforces_concrete }}</td>
+                    <td>{{ costs.roof_concrete_cost }}</td>
+                  </tr>
+                  <tr>
+                    <td>إجمالي الحديد للسقف</td>
+                    <td>{{ qtys.roof_iron_qty }}</td>
+                    <td>طن</td>
+                    <td>{{ prices.iron_ton }}</td>
+                    <td>{{ costs.roof_iron_cost }}</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </v-col>
+        </v-row>
       </section>
     </vue-html2pdf>
     <v-overlay :value="showProgress">
@@ -169,4 +171,3 @@ export default {
 }
 </script>
 
-<style></style>

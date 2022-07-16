@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-html2pdf
-     :show-layout="true"
+      :show-layout="true"
       :float-layout="false"
       :enable-download="true"
       :preview-modal="false"
@@ -16,51 +16,52 @@
       ref="basesPdf"
     >
       <section slot="pdf-content">
-          <v-row>
-            <v-col cols="11" class="mb-10">
-
+        <v-row>
+          <v-col cols="11" class="mb-10">
+            <div class="pdf-title-wrapper">
               <h3 class="text-center mb-10">
                 مساحة الدور المتكرر {{ totalArea }} م^2
               </h3>
-              <br>
-              <v-simple-table>
-                <template v-slot:default>
-                  <thead>
-                    <tr>
-                      <th>العنصر</th>
-                      <th>الكمية</th>
-                      <th>الوحدة</th>
-                      <th>سعر الوحدة</th>
-                      <th>التكلفة الإجمالية</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>خرسانة النظافة للقواعد</td>
-                      <td>{{ qtys.bases_normal_concrete_qty }}</td>
-                      <td>م^3</td>
-                      <td>{{ prices.normal_concrete }}</td>
-                      <td>{{ costs.bases_normal_concrete_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>خرسانة المسلحة للقواعد</td>
-                      <td>{{ qtys.bases_reinforces_concrete_qty }}</td>
-                      <td>م^3</td>
-                      <td>{{ prices.reinforces_concrete }}</td>
-                      <td>{{ costs.bases_reinforces_concrete_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>حديد القواعد</td>
-                      <td>{{ qtys.bases_iron_qty }}</td>
-                      <td>طن</td>
-                      <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.bases_iron_cost }}</td>
-                    </tr>
-                  </tbody>
-                </template>
-              </v-simple-table>
-            </v-col>
-          </v-row>
+            </div>
+            <br />
+            <v-simple-table>
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th>العنصر</th>
+                    <th>الكمية</th>
+                    <th>الوحدة</th>
+                    <th>سعر الوحدة</th>
+                    <th>التكلفة الإجمالية</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>خرسانة النظافة للقواعد</td>
+                    <td>{{ qtys.bases_normal_concrete_qty }}</td>
+                    <td>م^3</td>
+                    <td>{{ prices.normal_concrete }}</td>
+                    <td>{{ costs.bases_normal_concrete_cost }}</td>
+                  </tr>
+                  <tr>
+                    <td>خرسانة المسلحة للقواعد</td>
+                    <td>{{ qtys.bases_reinforces_concrete_qty }}</td>
+                    <td>م^3</td>
+                    <td>{{ prices.reinforces_concrete }}</td>
+                    <td>{{ costs.bases_reinforces_concrete_cost }}</td>
+                  </tr>
+                  <tr>
+                    <td>حديد القواعد</td>
+                    <td>{{ qtys.bases_iron_qty }}</td>
+                    <td>طن</td>
+                    <td>{{ prices.iron_ton }}</td>
+                    <td>{{ costs.bases_iron_cost }}</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </v-col>
+        </v-row>
       </section>
     </vue-html2pdf>
     <v-overlay :value="showProgress">
@@ -113,7 +114,10 @@ export default {
   },
   methods: {
     async generateReport() {
-    this.filename = `(للقواعد)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
+      this.filename = `(للقواعد)تقرير جديد ${new Date()
+        .getTime()
+        .toString()
+        .slice(new Date().getTime().toString().length / 2)}`
       await this.$refs.basesPdf.generatePdf()
       this.$emit('pdfGenerated')
     },
@@ -122,8 +126,7 @@ export default {
         this.progressValue = e
         setTimeout(() => {
           this.showProgress = false
-
-        }, 500);
+        }, 500)
       } else {
         this.showProgress = true
         this.progressValue = e
@@ -131,9 +134,11 @@ export default {
     },
   },
   mounted() {
-    this.filename = `(للقواعد)تقرير جديد ${(new Date().getTime()).toString().slice(new Date().getTime().toString().length/2)}`
+    this.filename = `(للقواعد)تقرير جديد ${new Date()
+      .getTime()
+      .toString()
+      .slice(new Date().getTime().toString().length / 2)}`
   },
 }
 </script>
 
-<style></style>
