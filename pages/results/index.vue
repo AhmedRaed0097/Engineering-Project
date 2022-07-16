@@ -27,6 +27,11 @@
       @pdfGenerated="onPDFGenerated"
       :generatePdf="generatePDF"
     ></roofsPDF>
+    <columnsPDF
+      v-if="selectedOption === 'columns'"
+      @pdfGenerated="onPDFGenerated"
+      :generatePdf="generatePDF"
+    ></columnsPDF>
     <totalPDF
       v-if="selectedOption === 'all'"
       @pdfGenerated="onPDFGenerated"
@@ -67,6 +72,10 @@ export default {
         {
           title: 'حساب الكميات والتكلفة للأسقف',
           value: 'roofs',
+        },
+        {
+          title: 'حساب الكميات والتكلفة للأعمدة',
+          value: 'columns',
         },
         // {
         //   title: 'حساب إجمالي الكميات والتكلفة',
@@ -113,12 +122,12 @@ export default {
   height: 100%;
   .options-row {
     height: 100%;
-    // display: flex;
-    // align-items: center;
+    display: flex;
+    align-items: center;
   }
-  .table-wrapper{
+  .table-wrapper {
     padding: 0 10px !important;
-    .col-12{
+    .col-12 {
       padding: 0 !important;
     }
   }
