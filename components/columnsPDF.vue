@@ -1,0 +1,138 @@
+<template>
+  <div>
+    <vue-html2pdf
+      :show-layout="true"
+      :float-layout="false"
+      :enable-download="true"
+      :preview-modal="false"
+      :paginate-elements-by-height="1400"
+      :filename="filename"
+      :pdf-quality="2"
+      :manual-pagination="false"
+      pdf-format="a4"
+      pdf-orientation="landscape"
+      pdf-content-width="100%"
+      @progress="onProgress($event)"
+      ref="basesPdf"
+    >
+      <section slot="pdf-content">
+          <v-row>
+            <v-col cols="11" class="mb-10">
+              <div class="pdf-title-wrapper">
+              <h3 class="text-center mb-10">
+                مساحة الدور المتكرر {{ totalArea }} م^2
+              </h3>
+
+              </div>
+              <br />
+              <v-simple-table>
+                <template v-slot:default>
+                  <thead>
+                    <tr>
+                      <th>العنصر</th>
+                      <th>الكمية</th>
+                      <th>الوحدة</th>
+                      <th>سعر الوحدة</th>
+                      <th>التكلفة الإجمالية</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>خرسانة الأعمدة</td>
+                      <td>{{ qtys.columns_concrete_qty }}</td>
+                      <td>م^3</td>
+                      <td>{{ prices.reinforces_concrete }}</td>
+                      <td>{{ costs.columns_concrete_cost }}</td>
+                    </tr>
+                    <tr>
+                      <td>حديد الأعمدة</td>
+                      <td>{{ qtys.columns_iron_qty }}</td>
+                      <td>طن</td>
+                      <td>{{ prices.iron_ton }}</td>
+                      <td>{{ costs.columns_iron_cost }}</td>
+                    </tr>
+                  </tbody>
+                </template>
+              </v-simple-table>
+            </v-col>
+          </v-row>
+      </section>
+    </vue-html2pdf>
+    <v-overlay :value="showProgress">
+      <div>
+        <p>جارٍ التزيل...</p>
+        <v-progress-linear :value="progressValue"></v-progress-linear>
+      </div>
+    </v-overlay>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    generatePdf: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      filename: '',
+      showProgress: false,
+      progressValue: 0,
+    }
+  },
+  watch: {
+    generatePdf(val) {
+      if (val === true) {
+        this.generateReport()
+      }
+    },
+  },
+  computed: {
+    totalArea() {
+      return this.$store.state.total_area
+    },
+    qtys() {
+      return this.$store.state.qtys
+    },
+    prices() {
+      return this.$store.state.prices
+    },
+    costs() {
+      return this.$store.state.costs
+    },
+    enteries() {
+      return this.$store.state.enteries
+    },
+  },
+  methods: {
+    async generateReport() {
+      this.filename = `(للأعمدة)تقرير جديد ${new Date()
+        .getTime()
+        .toString()
+        .slice(new Date().getTime().toString().length / 2)}`
+
+      await this.$refs.basesPdf.generatePdf()
+      this.$emit('pdfGenerated')
+    },
+    onProgress(e) {
+      if (e === 100) {
+        this.progressValue = e
+        setTimeout(() => {
+          this.showProgress = false
+        }, 500)
+      } else {
+        this.showProgress = true
+        this.progressValue = e
+      }
+    },
+  },
+  mounted() {
+    this.filename = `(للأعمدة)تقرير جديد ${new Date()
+      .getTime()
+      .toString()
+      .slice(new Date().getTime().toString().length / 2)}`
+  },
+}
+</script>
