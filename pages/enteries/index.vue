@@ -108,11 +108,11 @@
             color="black"
           >
           </v-text-field>
-          <small>
+          <small :class="{ 'small-text': $vuetify.breakpoint.mdAndDown }">
             <strong>
-            في حالة عدم إدخال مساحة السقف سيتم إعتماد مساحة الدور المتكرر
+              في حالة عدم إدخال مساحة السقف سيتم إعتماد مساحة الدور المتكرر
             </strong>
-            </small>
+          </small>
         </v-col>
         <v-col cols="12">
           <center>
