@@ -116,7 +116,7 @@ export const mutations = {
     // ===================== COMPUTE roofs qtys ===================================
     // حساب كمية الخرسانة للأسقف
 
-    if (state.enteries.roof_area === null) {
+    if (state.enteries.roof_area === null || state.enteries.roof_area === "" ) {
       state.enteries.roof_area = state.total_area
     }
     // setTimeout(() => {
