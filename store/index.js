@@ -124,14 +124,14 @@ export const mutations = {
         state.enteries.roof_area <= 150 ||
         (state.enteries.roof_area >= 150 && state.enteries.roof_area < 250)
       ) {
-        state.qtys.roof_concrete_qty = (0.212 * state.enteries.roof_area).toFixed(2)
+        state.qtys.roof_concrete_qty = (0.217 * state.enteries.roof_area).toFixed(2)
       } else if (
         state.enteries.roof_area >= 250 &&
         state.enteries.roof_area < 400
       ) {
         state.qtys.roof_concrete_qty = (0.222 * state.enteries.roof_area).toFixed(2)
       } else if (state.enteries.roof_area >= 400) {
-        state.qtys.roof_concrete_qty = (0.233 * state.enteries.roof_area).toFixed(2)
+        state.qtys.roof_concrete_qty = (0.224 * state.enteries.roof_area).toFixed(2)
       }
 
       // حساب كمية الحديد للأسقف
@@ -139,12 +139,12 @@ export const mutations = {
         state.enteries.roof_area <= 150 ||
         (state.enteries.roof_area >= 150 && state.enteries.roof_area < 250)
       ) {
-        state.qtys.roof_iron_qty = (0.14 * state.qtys.roof_concrete_qty).toFixed(2)
+        state.qtys.roof_iron_qty = (0.142 * state.qtys.roof_concrete_qty).toFixed(2)
       } else if (
         state.enteries.roof_area >= 250 &&
         state.enteries.roof_area < 400
       ) {
-        state.qtys.roof_iron_qty = (0.142 * state.qtys.roof_concrete_qty).toFixed(2)
+        state.qtys.roof_iron_qty = (0.147 * state.qtys.roof_concrete_qty).toFixed(2)
       } else if (state.enteries.roof_area >= 400) {
         state.qtys.roof_iron_qty = (0.162 * state.qtys.roof_concrete_qty).toFixed(2)
       }
@@ -232,13 +232,13 @@ export const mutations = {
 
     // حساب كمية الخرسانة للأعمدة 
     if (payload.floor_number === 2) {
-      state.qtys.columns_concrete_qty = (0.043 * state.total_area).toFixed(2)
+      state.qtys.columns_concrete_qty = (0.043 * state.enteries.roof_area).toFixed(2)
     } else if (payload.floor_number === 3) {
-      state.qtys.columns_concrete_qty = (0.044 * state.total_area).toFixed(2)
+      state.qtys.columns_concrete_qty = (0.044 * state.enteries.roof_area).toFixed(2)
     } else if (payload.floor_number === 4) {
-      state.qtys.columns_concrete_qty = (0.049 * state.total_area).toFixed(2)
+      state.qtys.columns_concrete_qty = (0.049 * state.enteries.roof_area).toFixed(2)
     } else if (payload.floor_number === 5) {
-      state.qtys.columns_concrete_qty = (0.052 * state.total_area).toFixed(2)
+      state.qtys.columns_concrete_qty = (0.052 * state.enteries.roof_area).toFixed(2)
     }
 
     // حساب كمية الحديد للأعمدة 
