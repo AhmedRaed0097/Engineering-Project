@@ -243,13 +243,13 @@ export const mutations = {
 
     // حساب كمية الحديد للأعمدة 
     if (payload.floor_number === 2) {
-      state.qtys.columns_iron_qty = (0.164 * state.total_area).toFixed(2)
+      state.qtys.columns_iron_qty = (0.164 * state.qtys.columns_concrete_qty).toFixed(2)
     } else if (payload.floor_number === 3) {
-      state.qtys.columns_iron_qty = (0.173 * state.total_area).toFixed(2)
+      state.qtys.columns_iron_qty = (0.173 * state.qtys.columns_concrete_qty).toFixed(2)
     } else if (payload.floor_number === 4) {
-      state.qtys.columns_iron_qty = (0.182 * state.total_area).toFixed(2)
+      state.qtys.columns_iron_qty = (0.182 * state.qtys.columns_concrete_qty).toFixed(2)
     } else if (payload.floor_number === 5) {
-      state.qtys.columns_iron_qty = (0.190 * state.total_area).toFixed(2)
+      state.qtys.columns_iron_qty = (0.190 * state.qtys.columns_concrete_qty).toFixed(2)
     }
 
   },
