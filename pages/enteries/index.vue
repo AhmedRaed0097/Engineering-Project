@@ -100,9 +100,9 @@
         </v-col>
         <v-col cols="6">
           <v-text-field
-            v-model.number="form.roof_area"
-            label="مساحة السقف (إختياري)"
-            placeholder="مساحة السقف (إختياري)"
+            v-model.number="form.floor_area"
+            label="مساحة الدور المتكرر (إختياري)"
+            placeholder="مساحة الدور المتكرر (إختياري)"
             outlined
             hide-details
             color="black"
@@ -110,7 +110,7 @@
           </v-text-field>
           <small :class="{ 'small-text': $vuetify.breakpoint.mdAndDown }">
             <strong>
-              في حالة عدم إدخال مساحة السقف سيتم إعتماد مساحة الدور المتكرر
+              في حالة عدم إدخال مساحة الدور المتكرر سيتم حسابها من المدخلات
             </strong>
           </small>
         </v-col>
@@ -134,7 +134,7 @@ export default {
         projection_size: 0,
         projection_number: '',
         floor_number: null,
-        roof_area: null,
+        floor_area: null,
         roof_type: '',
         soil_type: '',
         height: '',
@@ -142,7 +142,7 @@ export default {
       },
       projections_size: [1, 1.2, 1.4, 1.6],
       projections_number: [1, 2, 3, 4],
-      floors_number: [3, 4, 5],
+      floors_number: [2, 3, 4, 5],
       soil_types: [
         {
           title: 'قوية',
