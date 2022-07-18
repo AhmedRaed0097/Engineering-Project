@@ -20,7 +20,7 @@
             <v-col cols="11" class="mb-10">
               <div class="pdf-title-wrapper">
               <h3 class="text-center mb-10">
-                مساحة الدور المتكرر {{ totalArea }} م^2
+                مساحة الدور المتكرر {{ enteries.floor_area }} م^2
               </h3>
 
               </div>
@@ -90,9 +90,6 @@ export default {
     },
   },
   computed: {
-    totalArea() {
-      return this.$store.state.total_area
-    },
     qtys() {
       return this.$store.state.qtys
     },
