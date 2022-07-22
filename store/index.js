@@ -194,7 +194,7 @@ export const mutations = {
       ) {
         state.qtys.bridge_iron_qty = (0.68 * state.qtys.roof_iron_qty).toFixed(2)
       } else if (state.enteries.floor_area >= 400) {
-        state.qtys.bridge_iron_qty = (0.28 * state.qtys.roof_iron_qty).toFixed(2)
+        state.qtys.bridge_iron_qty = (0.73 * state.qtys.roof_iron_qty).toFixed(2)
       }
 
       // حساب كمية حديد البلاطة
