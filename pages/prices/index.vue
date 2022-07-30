@@ -49,6 +49,19 @@
           >
           </v-text-field>
         </v-col>
+        <v-col cols="6">
+            <v-select
+            v-model="form.curency"
+            :items="curecesList"
+            label="إختر العملة"
+            placeholder="إختر العملة"
+            outlined
+            :rules="fieldNumberRules"
+            :no-data-text="'لاتوجد بيانات'"
+            color="black"
+          >
+          </v-select>
+        </v-col>
 
         <v-col cols="12">
           <center>
@@ -73,6 +86,14 @@ export default {
         blocks: '',
         // cement:'',
       },
+      curecesList:[
+        'ريال سعودي',
+        'ريال يمني',
+        'درهم إماراتي',
+        'ريال قطري',
+        'دينار كويتي',
+        'دولار امريكي'
+      ],
       requiredRules: [
         (v) => !!v || 'الحقل مطلوب',
         (v) => /^(\d+(?:\.\d+)?)$/.test(v) || 'يجب ان يكون المدخل ارقام',

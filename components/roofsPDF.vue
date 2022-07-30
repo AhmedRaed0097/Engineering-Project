@@ -33,6 +33,7 @@
                     <th>الوحدة</th>
                     <th>سعر الوحدة</th>
                     <th>التكلفة الإجمالية</th>
+                    <th>العملة</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -42,6 +43,7 @@
                     <td>م^3</td>
                     <td>{{ prices.reinforces_concrete }}</td>
                     <td>{{ costs.bridge_concrete_cost }}</td>
+                    <td>{{ prices.curency }}</td>
                   </tr>
                   <tr>
                     <td>حديد الجسور</td>
@@ -49,6 +51,7 @@
                     <td>طن</td>
                     <td>{{ prices.iron_ton }}</td>
                     <td>{{ costs.bridge_iron_cost }}</td>
+                    <td>{{ prices.curency }}</td>
                   </tr>
                   <tr>
                     <td>خرسانة البلاطة</td>
@@ -56,6 +59,7 @@
                     <td>م^3</td>
                     <td>{{ prices.reinforces_concrete }}</td>
                     <td>{{ costs.slab_concrete_cost }}</td>
+                    <td>{{ prices.curency }}</td>
                   </tr>
                   <tr>
                     <td>حديد البلاطة</td>
@@ -63,6 +67,7 @@
                     <td>طن</td>
                     <td>{{ prices.iron_ton }}</td>
                     <td>{{ costs.slab_iron_cost }}</td>
+                    <td>{{ prices.curency }}</td>
                   </tr>
                   <tr>
                     <td>البلك الهوردي</td>
@@ -70,6 +75,7 @@
                     <td>بلكة</td>
                     <td>{{ prices.blocks }}</td>
                     <td>{{ costs.block_cost }}</td>
+                    <td>{{ prices.curency }}</td>
                   </tr>
                   <tr>
                     <td>إجمالي الخرسانة للسقف</td>
@@ -77,6 +83,7 @@
                     <td>م^3</td>
                     <td>{{ prices.reinforces_concrete }}</td>
                     <td>{{ costs.roof_concrete_cost }}</td>
+                    <td>{{ prices.curency }}</td>
                   </tr>
                   <tr>
                     <td>إجمالي الحديد للسقف</td>
@@ -84,6 +91,7 @@
                     <td>طن</td>
                     <td>{{ prices.iron_ton }}</td>
                     <td>{{ costs.roof_iron_cost }}</td>
+                    <td>{{ prices.curency }}</td>
                   </tr>
                 </tbody>
               </template>

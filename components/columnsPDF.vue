@@ -16,46 +16,48 @@
       ref="basesPdf"
     >
       <section slot="pdf-content">
-          <v-row>
-            <v-col cols="11" class="mb-10">
-              <div class="pdf-title-wrapper">
+        <v-row>
+          <v-col cols="11" class="mb-10">
+            <div class="pdf-title-wrapper">
               <h3 class="text-center mb-10">
                 مساحة الدور المتكرر {{ enteries.floor_area }} م^2
               </h3>
-
-              </div>
-              <br />
-              <v-simple-table>
-                <template v-slot:default>
-                  <thead>
-                    <tr>
-                      <th>العنصر</th>
-                      <th>الكمية</th>
-                      <th>الوحدة</th>
-                      <th>سعر الوحدة</th>
-                      <th>التكلفة الإجمالية</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>خرسانة الأعمدة</td>
-                      <td>{{ qtys.columns_concrete_qty }}</td>
-                      <td>م^3</td>
-                      <td>{{ prices.reinforces_concrete }}</td>
-                      <td>{{ costs.columns_concrete_cost }}</td>
-                    </tr>
-                    <tr>
-                      <td>حديد الأعمدة</td>
-                      <td>{{ qtys.columns_iron_qty }}</td>
-                      <td>طن</td>
-                      <td>{{ prices.iron_ton }}</td>
-                      <td>{{ costs.columns_iron_cost }}</td>
-                    </tr>
-                  </tbody>
-                </template>
-              </v-simple-table>
-            </v-col>
-          </v-row>
+            </div>
+            <br />
+            <v-simple-table>
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th>العنصر</th>
+                    <th>الكمية</th>
+                    <th>الوحدة</th>
+                    <th>سعر الوحدة</th>
+                    <th>التكلفة الإجمالية</th>
+                    <th>العملة</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>خرسانة الأعمدة</td>
+                    <td>{{ qtys.columns_concrete_qty }}</td>
+                    <td>م^3</td>
+                    <td>{{ prices.reinforces_concrete }}</td>
+                    <td>{{ costs.columns_concrete_cost }}</td>
+                    <td>{{ prices.curency }}</td>
+                  </tr>
+                  <tr>
+                    <td>حديد الأعمدة</td>
+                    <td>{{ qtys.columns_iron_qty }}</td>
+                    <td>طن</td>
+                    <td>{{ prices.iron_ton }}</td>
+                    <td>{{ costs.columns_iron_cost }}</td>
+                    <td>{{ prices.curency }}</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </v-col>
+        </v-row>
       </section>
     </vue-html2pdf>
     <v-overlay :value="showProgress">

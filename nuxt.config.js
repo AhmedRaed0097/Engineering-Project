@@ -85,7 +85,7 @@ server:{
 
     workbox: {
       cachingExtensions: '@/plugins/workbox-sync.js',
-      enabled: true //should be off actually per workbox docs due to complications when used in prod
+      enabled: false //should be off actually per workbox docs due to complications when used in prod
     }
   },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

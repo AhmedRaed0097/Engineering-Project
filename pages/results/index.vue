@@ -32,6 +32,11 @@
       @pdfGenerated="onPDFGenerated"
       :generatePdf="generatePDF"
     ></columnsPDF>
+    <medahPDF
+      v-if="selectedOption === 'medah'"
+      @pdfGenerated="onPDFGenerated"
+      :generatePdf="generatePDF"
+    ></medahPDF>
     <totalPDF
       v-if="selectedOption === 'all'"
       @pdfGenerated="onPDFGenerated"
@@ -76,6 +81,10 @@ export default {
         {
           title: 'حساب الكميات والتكلفة للأعمدة',
           value: 'columns',
+        },
+        {
+          title: 'حساب الكميات والتكلفة للميدة',
+          value: 'medah',
         },
         // {
         //   title: 'حساب إجمالي الكميات والتكلفة',

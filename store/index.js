@@ -20,6 +20,10 @@ export const state = () => ({
     block_qty: null,
     columns_concrete_qty: null,
     columns_iron_qty: null,
+    // كمية خرسانة وحديد الميدة
+    medah_reinforces_concrete_qty: null,
+    medah_iron_qty: null,
+    
 
   },
   costs: {
@@ -35,6 +39,11 @@ export const state = () => ({
     block_cost: null,
     columns_concrete_cost: null,
     columns_iron_cost: null,
+
+    // تكلفة خرسانة وحديد الميدة
+    medah_reinforces_concrete_cost: null,
+    medah_iron_cost: null,
+    
 
   },
 })
@@ -252,6 +261,19 @@ export const mutations = {
       state.qtys.columns_iron_qty = (0.190 * state.qtys.columns_concrete_qty).toFixed(2)
     }
 
+
+
+// ================================== الميدات  ========
+
+    // كمية خرسانة وحديد الميدة
+    state.qtys.medah_reinforces_concrete_qty =  (0.0803 * (payload.width * payload.height)).toFixed(2) 
+
+    
+    state.qtys.medah_iron_qty =  (0.12085 * state.qtys.medah_reinforces_concrete_qty).toFixed(2)
+    
+
+
+
   },
   STOREPRICES(state, payload) {
     state.prices = payload
@@ -306,6 +328,13 @@ export const mutations = {
       state.qtys.columns_iron_qty * payload.iron_ton
     ).toFixed(2))
 
+    
+    // =================================================================================
+
+    // =========================   حساب تكاليف الميدة    ===========================
+
+    state.costs.medah_reinforces_concrete_cost = parseFloat((payload.reinforces_concrete * state.qtys.medah_reinforces_concrete_qty).toFixed(2))      
+    state.costs.medah_iron_cost = parseFloat((payload.iron_ton * state.qtys.medah_iron_qty).toFixed(2))      
 
   },
   CLEARALL(state) {

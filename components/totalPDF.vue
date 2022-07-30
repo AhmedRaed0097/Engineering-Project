@@ -30,20 +30,24 @@
                     <tr>
                       <th>العنصر</th>
                       <th>التكلفة الإجمالية</th>
+                      <th>العملة</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>خرسانة النظافة للقواعد</td>
                       <td>{{ costs.bases_normal_concrete_cost }}</td>
+                      <th>العملة</th>
                     </tr>
                     <tr>
                       <td>خرسانة المسلحة للقواعد</td>
                       <td>{{ costs.bases_reinforces_concrete_cost }}</td>
+                      <th>العملة</th>
                     </tr>
                     <tr>
                       <td>حديد القواعد</td>
                       <td>{{ costs.bases_iron_cost }}</td>
+                      <th>العملة</th>
                     </tr>
                   </tbody>
                 </template>
