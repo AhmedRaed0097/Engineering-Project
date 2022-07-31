@@ -20,7 +20,7 @@
             <v-col cols="11" class="mb-10">
               <div class="pdf-title-wrapper">
               <h3 class="text-center mb-10">
-                مساحة الدور المتكرر {{ enteries.floor_area }} م^2
+                مساحة الدور الأرضي {{ enteries.ground_floor }} م^2
               </h3>
 
               </div>
